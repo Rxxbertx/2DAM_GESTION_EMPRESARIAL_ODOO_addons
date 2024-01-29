@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pokemon_species_list">
+      <field name="name">pokemon.species.list</field>
+      <field name="model">pokemon.species</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name = "type_1"/>
+                <field name = "type_2"/>
+        </tree>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="taller_species_form">
+      <field name="name">pokemon.species.form</field>
+      <field name="model">pokemon.species</field>
+      <field name="arch" type="xml">
+        <form string="Especie">
+          <sheet>
+            <div class="oe_avatar">
+               <h1> <field name = "pokedex_number" readonly = "true"/></h1>
+            </div>
+            <div class="oe_title mb32">
+            <h1><field name="name" placeholder="Nombre de la especie"/></h1>
+              
+            </div>
+            <group name="group_top">
+
+                <group name="group_left">       
+                  
+                    
+                    <group name="group_izq">
+                        <field name = "type_1"/>
+                        <field name = "abilities"/>
+
+                    </group>
+
+                    <group name = "group_der">
+                        <field name = "type_2"/>
+                        <field name = "hidden_ability"/>
+                    </group>
+                </group>
+                <group name ="group_right">
+                    <field name = "img"/>
+                    <field name = "atk"/>
+                    <field name = "hp"/>
+                    <field name = "defense"/>
+                </group>
+            </group>
+          </sheet>       
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="species_action_window">
+      <field name="name">species</field>
+      <field name="res_model">pokemon.species</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data> 
+</odoo>

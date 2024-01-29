@@ -1,0 +1,89 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pokemon_trainer_list">
+      <field name="name">pokemon.trainer.list</field>
+      <!-- Hace referencia al _name del modelo pokemon.trainer -->
+      <field name="model">pokemon.trainer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name ="trainer_name"/>
+          <field name="team"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taller_trainer_form">
+      <field name="name">pokemon.trainer.form</field>
+      <field name="model">pokemon.trainer</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">       
+                <field name="trainer_name"/>
+                 <field name="team"/>
+              </group>
+              <group name ="group_right">
+               
+              </group>
+            </group>
+          </sheet>       
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="trainer_action_window">
+      <field name="name">trainer</field>
+      <field name="res_model">pokemon.trainer</field>
+      <field name="view_mode">tree,form</field>
+
+
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="pokemon.action_window">
+      <field name="name">Pokemon window</field>
+      <field name="res_model">pokemon.pokemon</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="pokemon.action_server">
+      <field name="name">Pokemon server</field>
+      <field name="model_id" ref="model_pokemon_pokemon"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Pokemon" id="pokemon.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="pokemon.menu_1" parent="pokemon.menu_root"/>
+    <menuitem name="Menu 2" id="pokemon.menu_2" parent="pokemon.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="pokemon.menu_1_list" parent="pokemon.menu_1"
+              action="pokemon.action_window"/>
+    <menuitem name="Server to list" id="pokemon" parent="pokemon.menu_2"
+              action="pokemon.action_server"/>
+-->
+  </data>
+</odoo>

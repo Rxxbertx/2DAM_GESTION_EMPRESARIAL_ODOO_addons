@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+
+    <!--Acción reset-->
+    <record id="action_restart_odoo" model="ir.actions.server">
+      <field name="name">Reiniciar Odoo</field>
+      <field name="model_id" ref="restart.model_module_restart"/> <!-- Asegúrate de que la referencia sea correcta -->
+      <field name="state">code</field>
+      <field name="code">model.env['module.restart'].do_restart()</field>
+    </record>
+
+    <!--Elemento menú-->
+    <menuitem id="menu_reset_odoo"
+          name="Reiniciar Odoo"
+          action="action_restart_odoo"
+          sequence="998"/>
+  </data>
+</odoo>

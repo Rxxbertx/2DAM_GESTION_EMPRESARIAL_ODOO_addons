@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="mecanico.list">
+      <field name="name">mecanico list</field>
+      <field name="model">mecanico.mecanico</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="mecanico.action_window">
+      <field name="name">mecanico window</field>
+      <field name="res_model">mecanico.mecanico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="mecanico.action_server">
+      <field name="name">mecanico server</field>
+      <field name="model_id" ref="model_mecanico_mecanico"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="mecanico" id="mecanico.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="mecanico.menu_1" parent="mecanico.menu_root"/>
+    <menuitem name="Menu 2" id="mecanico.menu_2" parent="mecanico.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="mecanico.menu_1_list" parent="mecanico.menu_1"
+              action="mecanico.action_window"/>
+    <menuitem name="Server to list" id="mecanico" parent="mecanico.menu_2"
+              action="mecanico.action_server"/>
+-->
+  </data>
+</odoo>

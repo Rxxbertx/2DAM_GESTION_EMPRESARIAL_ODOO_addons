@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+
+    <menuitem id="menu_taller_root"
+    name="TALLER"
+    sequence="10"/>
+
+      <menuitem id="menu_taller_marca"
+    name="MARCA"
+    parent="menu_taller_root"
+    sequence="1"
+    action="marca_action_window"/>
+    
+    <menuitem id="menu_taller_modelo"
+    name="MODELO"
+
+    parent="menu_taller_root"
+    sequence="1"
+    action="modelo_action_window"/>
+
+
+    <menuitem id="menu_taller_vehiculo"
+    name="VEHICULO"
+    parent="menu_taller_root"
+    sequence="1"
+    action="vehiculo_action_window"/>
+
+    <menuitem id="menu_taller_owner"
+    name="OWNER"
+    parent="menu_taller_root"
+    sequence="1"
+    action="owner_action_window"/>
+    
+    <menuitem id="menu_taller_normativa_emisiones_root"
+    name="Normativa y emisiones"
+    parent="menu_taller_root"
+    sequence="2"
+    />
+
+    <menuitem id="menu_taller_normativa"
+    name="Normativa"
+    parent="menu_taller_normativa_emisiones_root"
+    sequence="1"
+    action="normativa_action_window"/>
+
+    <menuitem id="menu_taller_emisiones"
+    name="Emisiones"
+    parent="menu_taller_normativa_emisiones_root"
+    sequence="1"
+    action="emisiones_action_window"/>
+
+
+    <menuitem id="menu_update_module"
+          name="Actualizar Módulo"
+          action="action_update_module"
+          parent="menu_taller_root"
+          sequence="999"/>
+
+  </data>
+</odoo>

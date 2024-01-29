@@ -1,0 +1,84 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pokemon_types_list">
+      <field name="name">pokemon.types.list</field>
+      <field name="model">pokemon.types</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="taller_types_form">
+      <field name="name">pokemon.types.form</field>
+      <field name="model">pokemon.types</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">       
+                <field name="name"/>
+              </group>
+              <group name ="group_right">
+              </group>
+            </group>
+          </sheet>       
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="types_action_window">
+      <field name="name">Types</field>
+      <field name="res_model">pokemon.types</field>
+      <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="pokemon.action_window">
+      <field name="name">Pokemon window</field>
+      <field name="res_model">pokemon.pokemon</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="pokemon.action_server">
+      <field name="name">Pokemon server</field>
+      <field name="model_id" ref="model_pokemon_pokemon"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Pokemon" id="pokemon.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="pokemon.menu_1" parent="pokemon.menu_root"/>
+    <menuitem name="Menu 2" id="pokemon.menu_2" parent="pokemon.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="pokemon.menu_1_list" parent="pokemon.menu_1"
+              action="pokemon.action_window"/>
+    <menuitem name="Server to list" id="pokemon" parent="pokemon.menu_2"
+              action="pokemon.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="taller_vehiculo_tree">
+      <field name="name">Gestion Vehiculo</field>
+      <field name="model">taller.vehiculo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="owner"/>
+           <field name="imagen" widget="image" options="{'size': (50, 50)}"/>
+          <field name="marca"/>
+          <field name="modelo"/>
+          <field name="ano" widget="year_selector"/>
+          <field name="color" widget="color_picker"/>
+          <field name="matricula"/>
+          <field name="bastidor"/>
+          <field name="cilindrada"/>
+          <field name="tipo_combustible"/>
+          <field name="tipo_vehiculo"/>
+          <field name="descripcion"/>
+        </tree>
+      </field>
+    </record>
+        <record model="ir.ui.view" id="taller_vehiculo_form">
+      <field name="name">Gestion Vehiculo</field>
+      <field name="model">taller.vehiculo</field>
+      <field name="arch" type="xml">
+        <form>
+        <sheet>
+          <group name="group_top" string="GESTION VEHICULO">
+            <group name="group_left" string="DATOS">
+              <field name="imagen" widget="image" options="{'size': (100, 100)}"/>
+              <field name="owner"/>
+              <field name="marca"/>
+              <field name="modelo"/>
+              <field name="ano" widget="year_selector"/>
+              <field name="color" widget="color"/>
+            </group>
+            <group name="group_left" string="">
+              <field name="matricula"/>
+              <field name="bastidor"/>
+              <field name="cilindrada"/>
+              <field name="tipo_combustible"/>
+              
+              <field name="tipo_vehiculo"/>
+              <field name="descripcion"/>
+            </group>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vehiculo_action_window">
+      <field name="name">Vehiculo</field>
+      <field name="res_model">taller.vehiculo</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          consult
+        </p>
+        <p>
+          Click 'Crear' para añadir nuevos elementos.
+        </p>
+      </field>
+    </record>
+
+  </data>
+</odoo>

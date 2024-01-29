@@ -1,0 +1,69 @@
+ <!-- Menú root padre -->
+ <odoo>
+    <data>
+        <menuitem id ="menu_pokemon_root"
+            name ="pokemon"
+            sequence="12"
+        />
+
+ <!-- Menú de la barra de herramientas principal-->
+        <menuitem id ="menu_lists_pokemon"
+        name ="Lists"
+        sequence="1"
+        parent="menu_pokemon_root"
+        />
+
+
+        <menuitem id ="menu_trainer"
+        name ="Trainers Zone"
+        sequence="2"
+        parent="menu_pokemon_root"
+       
+        />
+        
+        
+ <!-- Menu de la sub-barra de lists_Pokemon-->
+
+        <menuitem id ="menu_especies_template"
+        name ="Pokemon (species)"
+        sequence="1"
+        parent="menu_lists_pokemon"
+        action = "species_action_window"
+       />
+
+       <menuitem id ="menu_abilities_template"
+        name ="Abilities"
+        sequence="2"
+        parent="menu_lists_pokemon"
+        action = "abilities_action_window"
+       />
+
+        <menuitem id ="menu_types_template"
+        name ="Types"
+        sequence="3"
+        parent="menu_lists_pokemon"
+        action = "types_action_window"
+       />
+
+         <!-- action="marca_action_window" -->
+
+<!-- Menu de la sub-barra de Trainers-->
+
+
+        <menuitem id ="menu_trainer_template"
+        name ="Trainer"
+        sequence="1"
+        parent="menu_trainer"
+        action="trainer_action_window"
+       />
+
+       <menuitem id ="menu_team_template"
+        name ="Teams Pokemon"
+        sequence="2"
+        parent="menu_trainer"
+       />
+
+
+
+    </data>
+</odoo>

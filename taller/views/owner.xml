@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="taller_owner_tree">
+      <field name="name">Gestion Dueño</field>
+      <field name="model">taller.owner</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="dni"/>
+          <field name="phone"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="taller_owner_form">
+      <field name="name">Gestion Dueño</field>
+      <field name="model">taller.owner</field>
+      <field name="arch" type="xml">
+        <form>
+        <sheet>
+        <group name="group_top" string="GESTION DUEÑO">
+          <group name="group_left">
+            <field name="name"/>
+          <field name="surname"/>
+          </group>
+          <group name="group_right">
+            <field name="dni"/>
+            <field name="phone"/>
+          </group>
+        </group>
+        </sheet>
+          
+        </form>
+      </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="owner_action_window">
+      <field name="name">OWNER</field>
+      <field name="res_model">taller.owner</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          consult
+        </p>
+        <p>
+          Click 'Crear' para añadir nuevos elementos.
+        </p>
+      </field>
+    </record>
+
+    
+    
+    
+    
+      </data>
+</odoo>

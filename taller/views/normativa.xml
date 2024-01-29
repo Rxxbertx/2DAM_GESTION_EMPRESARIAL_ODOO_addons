@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="taller_normativa_tree">
+      <field name="name">Gestion Normativa</field>
+      <field name="model">taller.normativa.euro</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="year"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="taller_normativa_form">
+      <field name="name">Gestion Normativa</field>
+      <field name="model">taller.normativa.euro</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top" string="GESTION normativa">
+              <group name="group_left" string="Datos">
+                <field name="name"/>
+                <field name="year"/>
+              </group>
+              </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+  <record model="ir.actions.act_window" id="normativa_action_window">
+        <field name="name">Normativa</field>
+        <field name="res_model">taller.normativa.euro</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            consult
+          </p>
+          <p>
+            Click 'Crear' para añadir nuevos elementos.
+          </p>
+        </field>
+      </record>
+
+  </data>
+</odoo>

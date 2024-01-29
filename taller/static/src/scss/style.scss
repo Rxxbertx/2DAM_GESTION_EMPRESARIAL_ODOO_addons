@@ -1,0 +1,16 @@
+a[data-menu-xmlid="taller.menu_update_module"] {
+    background: repeating-linear-gradient(135deg, #d9b904, #d9b904 10px, #373435 10px, #373435 20px) !important;
+    border-color: #252628 !important;
+    font-weight: bold !important; /* Negrita */
+    color: black !important; /* Color del texto */
+    text-shadow:
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+         -1px 1px 0 #fff,
+         1px 1px 0 #fff; /* Contorno blanco */
+}
+
+a[data-menu-xmlid="taller.menu_update_module"]:hover
+{
+    background: repeating-linear-gradient(135deg, #b59b03, #b59b03 10px, #373435 10px, #373435 20px) !important;
+}

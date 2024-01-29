@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <!--Acción actualización--> 
+    <record id="action_update_module" model="ir.actions.server">
+      <field name="name">Actualizar Módulos</field>
+      <field name="model_id" ref="base.model_ir_module_module"/>
+      <field name="binding_model_id" ref="base.model_ir_module_module"/>
+      <field name="state">code</field>
+      <field name="code">
+          action = env['ir.module.module'].search([('name', '=', 'taller')]).button_immediate_upgrade()
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

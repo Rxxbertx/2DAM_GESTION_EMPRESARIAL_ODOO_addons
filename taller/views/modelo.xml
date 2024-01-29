@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="taller_modelo_tree">
+      <field name="name">Gestion Modelo</field>
+      <field name="model">taller.modelo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="marca"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="taller_modelo_form">
+          <field name="name">Gestion Modelo</field>
+          <field name="model">taller.modelo</field>
+          <field name="arch" type="xml">
+            <form>
+              <sheet>
+
+              <group name="group_top" string="GESTION MODELO">
+
+                  <field name="name"/>
+                  <field name="marca"/>
+
+              </group>
+
+              </sheet>
+              
+            </form>
+          </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="modelo_action_window">
+        <field name="name">Modelo</field>
+        <field name="res_model">taller.modelo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            consult
+          </p>
+          <p>
+            Click 'Crear' para añadir nuevos elementos.
+          </p>
+        </field>
+      </record>
+
+
+
+
+
+  </data>
+</odoo>

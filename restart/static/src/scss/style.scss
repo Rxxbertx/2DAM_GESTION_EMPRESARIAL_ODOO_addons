@@ -1,0 +1,17 @@
+a[data-menu-xmlid="restart.menu_reset_odoo"] {
+    background: repeating-linear-gradient(135deg, #d90404, #d90404 10px, #373435 10px, #373435 20px) !important;
+    border-color: #252628 !important;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold !important; /* Negrita */
+    color: black !important; /* Color del texto */
+    text-shadow:
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+         -1px 1px 0 #fff,
+         1px 1px 0 #fff; /* Contorno blanco */
+}
+
+a[data-menu-xmlid="restart.menu_reset_odoo"]:hover {
+    background: repeating-linear-gradient(135deg, #b59b03, #b59b03 10px, #373435 10px, #373435 20px) !important;
+}
