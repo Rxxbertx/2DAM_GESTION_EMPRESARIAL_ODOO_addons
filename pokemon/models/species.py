@@ -18,6 +18,8 @@ class Species(models.Model):
     hp = fields.Integer(string="Puntos de Vida")
     defense = fields.Integer(string="Defensa")
 
+
+
     @api.depends('abilities')
     def _compute_hidden_ability(self):
         for record in self:
