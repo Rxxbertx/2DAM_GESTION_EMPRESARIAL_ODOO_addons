@@ -1,0 +1,41 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    ports:
+      - "5432:5432"
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: odoo@odoo.com
+      PGADMIN_DEFAULT_PASSWORD: odoo
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+  odoo:
+    image: odoo:latest
+    volumes:
+      - odoo:/var/lib/odoo
+      - ../2DAM_GESTION_EMPRESARIAL_ODOO_addons:/mnt/extra-addons
+    ports:
+      - "8069:8069"
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+    depends_on:
+      - db
+      - pgadmin4
+
+volumes:
+  odoo:
+
+
+

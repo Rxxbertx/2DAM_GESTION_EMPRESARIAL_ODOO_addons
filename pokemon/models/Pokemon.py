@@ -4,27 +4,22 @@ from odoo import models, fields, api
 
 
 class Pokemon(models.Model):
-    _inherit = "pokemon.species"
+    _inherit = "pokemon.specie"
 
     _name = 'pokemon.pokemon'
     _description = "Un pokemon concreto"
 
-    nickname = fields.Char(string="Mote")
-    ability = fields.Many2one(comodel_name="pokemon.abilities", required=True)
-    trainer = fields.Many2one(comodel_name="pokemon.trainer")
+    nickname = fields.Char(string="Apodo")
 
-    possible_State = [
-        ("1", "Wild"),
-        ("2", "Captured")
-    ]
+    specie = fields.Many2one(comodel_name="pokemon.specie", required=True, string="Especie")
+    pokemon_ability = fields.Many2one(comodel_name="pokemon.ability", required=True, string="Habilidad Pokemon")
+    trainer = fields.Many2one(comodel_name="pokemon.trainer", required=True, string="Entrenador")
 
-    pokedex_number = fields.Integer(string="Numero de Pokedex Nacional", required=True)
-
-    type_1 = fields.Many2one(comodel_name="pokemon.types", string="Primer tipo del pokemon" , related="specie.type_1", readonly=True, store=False)
-    type_2 = fields.Many2one(comodel_name="pokemon.types", string="Segundo tipo del pokemon", related="specie.type_2", readonly=True, store=False)
-    # api depends de si tiene trainer entonces no es salvaje, sino capturado
-
-    state = fields.Selection(possible_State, string="Estado", required=True, default="1")
-    # state = fields.Char(string ="seleccion")
-
-    specie = fields.Many2one(comodel_name="pokemon.species", string="Especie", required=True)
+    img = fields.Image(string="Imagen")
+    ability = fields.Many2many(related='specie.ability', string="Habilidades")
+    hidden_ability = fields.Many2one(related='specie.hidden_ability', string="Habilidad Oculta")
+    type_1 = fields.Many2one(related='specie.type_1', string="Primer tipo del pokemon")
+    type_2 = fields.Many2one(related='specie.type_2', string="Segundo tipo del pokemon")
+    atk = fields.Integer(related='specie.atk', string="Ataque")
+    hp = fields.Integer(related='specie.hp', string="Puntos de Vida")
+    defense = fields.Integer(related='specie.defense', string="Defensa")

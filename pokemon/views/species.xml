@@ -1,65 +1,81 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+        <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="pokemon_specie_list">
-      <field name="name">pokemon.specie.list</field>
-      <field name="model">pokemon.specie</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name = "type_1"/>
-                <field name = "type_2"/>
-        </tree>
-      </field>
-    </record>
+        <record model="ir.ui.view" id="pokemon_specie_list">
+            <field name="name">pokemon.specie.list</field>
+            <field name="model">pokemon.specie</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="pokedex_number"/>
+
+                    <!--image field-->
+                    <field name="img" widget="image" options="{'zoom': true}"/>
+
+                    <field name="ability"/>
+                    <field name="hidden_ability"/>
+                    <field name="type_1"/>
+                    <field name="type_2"/>
+                    <field name="atk"/>
+                    <field name="hp"/>
+                    <field name="defense"/>
+
+
+                </tree>
+            </field>
+        </record>
 
         <record model="ir.ui.view" id="taller_specie_form">
-      <field name="name">pokemon.specie.form</field>
-      <field name="model">pokemon.specie</field>
-      <field name="arch" type="xml">
-        <form string="Especie">
-          <sheet>
-            <div class="oe_avatar">
-               <h1> <field name = "pokedex_number" readonly = "true"/></h1>
-            </div>
-            <div class="oe_title mb32">
-            <h1><field name="name" placeholder="Nombre de la especie"/></h1>
-              
-            </div>
-            <group name="group_top">
+            <field name="name">pokemon.specie.form</field>
+            <field name="model">pokemon.specie</field>
+            <field name="arch" type="xml">
+                <form string="Especie">
+                    <sheet>
+                        <div class="oe_avatar">
+                            <h1>
+                                <field name="pokedex_number" readonly="true"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title mb32">
+                            <h1>
+                                <field name="name" placeholder="Nombre de la especie"/>
+                            </h1>
 
-                <group name="group_left">       
-                  
-                    
-                    <group name="group_izq">
-                        <field name = "type_1"/>
-                        <field name = "abilities"/>
+                        </div>
+                        <group name="group_top">
 
-                    </group>
+                            <group name="group_left">
 
-                    <group name = "group_der">
-                        <field name = "type_2"/>
-                        <field name = "hidden_ability"/>
-                    </group>
-                </group>
-                <group name ="group_right">
-                    <field name = "img"/>
-                    <field name = "atk"/>
-                    <field name = "hp"/>
-                    <field name = "defense"/>
-                </group>
-            </group>
-          </sheet>       
-        </form>
-      </field>
-    </record>
 
-    <record model="ir.actions.act_window" id="specie_action_window">
-      <field name="name">specie</field>
-      <field name="res_model">pokemon.specie</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+                                <group name="group_izq">
+                                    <field name="type_1"/>
+                                    <field name="ability"/>
 
-  </data> 
+                                </group>
+
+                                <group name="group_der">
+                                    <field name="type_2"/>
+                                    <field name="hidden_ability"/>
+                                </group>
+                            </group>
+                            <group name="group_right">
+                                <field name="img"/>
+                                <field name="atk"/>
+                                <field name="hp"/>
+                                <field name="defense"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="specie_action_window">
+            <field name="name">ESPECIE</field>
+            <field name="res_model">pokemon.specie</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
 </odoo>

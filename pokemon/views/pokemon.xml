@@ -1,51 +1,81 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+        <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="pokemon_pokemon_list">
-      <field name="name">pokemon.pokemon.list</field>
-      <field name="model">pokemon.pokemon</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="ability"/>
-          <field name="trainer"/>
-          <field name="state"/>
-          <field name="specie"/>
-        </tree>
-      </field>
-    </record>
+        <record model="ir.ui.view" id="pokemon_pokemon_list">
+            <field name="name">pokemon.pokemon.list</field>
+            <field name="model">pokemon.pokemon</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="nickname"/>
+                    <field name="pokedex_number"/>
+
+                    <!--image field-->
+                    <field name="img" widget="image" options="{'zoom': true}"/>
+
+                    <field name="ability"/>
+                    <field name="pokemon_ability"/>
+                    <field name="hidden_ability"/>
+                    <field name="type_1"/>
+                    <field name="type_2"/>
+                    <field name="atk"/>
+                    <field name="hp"/>
+                    <field name="defense"/>
+                </tree>
+            </field>
+        </record>
 
         <record model="ir.ui.view" id="taller_pokemon_form">
-      <field name="name">pokemon.pokemon.form</field>
-      <field name="model">pokemon.pokemon</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group name="group_top">
-                <field name="nickname" placeholder="Nombre del Pokemon"/>
-              <group name="group_left">       
-                <group name="group_left">
-                </group>
-                <group name="group_right">
-                  <field name="state"/>
-                </group>
-              </group>
-              <group name ="group_right">
-                <field name = "ability"/>
-                <field name = "pokedex_number"/>
-              </group>
-            </group>
-          </sheet>       
-        </form>
-      </field>
-    </record>
+            <field name="name">pokemon.pokemon.form</field>
+            <field name="model">pokemon.pokemon</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_avatar">
+                            <h1>
+                                <field name="pokedex_number" readonly="true"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title mb32">
+                            <h1>
+                                <field name="apodo" placeholder="Nombre del pokemon"/>
+                            </h1>
+
+                        </div>
+                        <group name="group_top">
+
+                            <group name="group_left">
 
 
-    <record model="ir.actions.act_window" id="pokemon_action_window">
-      <field name="name">pokemon</field>
-      <field name="res_model">pokemon.pokemon</field>
-      <field name="view_mode">tree</field>
-    </record>
-  </data> 
+                                <group name="group_izq">
+                                    <field name="type_1"/>
+                                    <field name="ability"/>
+
+                                </group>
+
+                                <group name="group_der">
+                                    <field name="type_2"/>
+                                    <field name="hidden_ability"/>
+                                </group>
+                            </group>
+                            <group name="group_right">
+                                <field name="img"/>
+                                <field name="atk"/>
+                                <field name="hp"/>
+                                <field name="defense"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="pokemon_action_window">
+            <field name="name">pokemon</field>
+            <field name="res_model">pokemon.pokemon</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
 </odoo>
