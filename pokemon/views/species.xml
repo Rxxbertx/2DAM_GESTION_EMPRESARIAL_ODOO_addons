@@ -2,9 +2,9 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="pokemon_species_list">
-      <field name="name">pokemon.species.list</field>
-      <field name="model">pokemon.species</field>
+    <record model="ir.ui.view" id="pokemon_specie_list">
+      <field name="name">pokemon.specie.list</field>
+      <field name="model">pokemon.specie</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -14,9 +14,9 @@
       </field>
     </record>
 
-        <record model="ir.ui.view" id="taller_species_form">
-      <field name="name">pokemon.species.form</field>
-      <field name="model">pokemon.species</field>
+        <record model="ir.ui.view" id="taller_specie_form">
+      <field name="name">pokemon.specie.form</field>
+      <field name="model">pokemon.specie</field>
       <field name="arch" type="xml">
         <form string="Especie">
           <sheet>
@@ -55,9 +55,9 @@
       </field>
     </record>
 
-    <record model="ir.actions.act_window" id="species_action_window">
-      <field name="name">species</field>
-      <field name="res_model">pokemon.species</field>
+    <record model="ir.actions.act_window" id="specie_action_window">
+      <field name="name">specie</field>
+      <field name="res_model">pokemon.specie</field>
       <field name="view_mode">tree,form</field>
     </record>
 

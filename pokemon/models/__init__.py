@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import types, abilities, species, pokemon, trainer  
+from . import PType, Ability, Specie, Pokemon, Trainer

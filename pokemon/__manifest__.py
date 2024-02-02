@@ -10,8 +10,8 @@
         Long description of module's purpose
     """,
 
-    'author': "Diego Laín",
-    'website': "https://www.github.com/dlain096",
+    'author': "R",
+    'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -26,7 +26,7 @@
     'data': [
 
         'views/types.xml',
-        'views/abilities.xml',
+        'views/ability.xml',
         'views/species.xml',
         'views/pokemon.xml',
         'views/trainer.xml',
@@ -45,4 +45,7 @@
 
         ],
     },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
 }

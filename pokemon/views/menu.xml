@@ -1,68 +1,53 @@
- <!-- Menú root padre -->
+
  <odoo>
     <data>
         <menuitem id ="menu_pokemon_root"
-            name ="pokemon"
-            sequence="12"
+            name ="POKEDEX"
+            sequence="1"
         />
 
- <!-- Menú de la barra de herramientas principal-->
         <menuitem id ="menu_lists_pokemon"
-        name ="Lists"
+        name ="MENU POKEMON"
         sequence="1"
         parent="menu_pokemon_root"
         />
 
 
         <menuitem id ="menu_trainer"
-        name ="Trainers Zone"
+        name ="ZONA ENTRENADOR"
         sequence="2"
         parent="menu_pokemon_root"
        
         />
-        
-        
- <!-- Menu de la sub-barra de lists_Pokemon-->
 
-        <menuitem id ="menu_especies_template"
-        name ="Pokemon (species)"
+        <menuitem id ="menu_especie_template"
+        name ="ESPECIE"
         sequence="1"
         parent="menu_lists_pokemon"
-        action = "species_action_window"
+        action = "specie_action_window"
        />
 
-       <menuitem id ="menu_abilities_template"
-        name ="Abilities"
+       <menuitem id ="menu_ability_template"
+        name ="HABILIDADES"
         sequence="2"
         parent="menu_lists_pokemon"
-        action = "abilities_action_window"
+        action = "ability_action_window"
        />
 
-        <menuitem id ="menu_types_template"
-        name ="Types"
+        <menuitem id ="menu_type_template"
+        name ="TIPOS"
         sequence="3"
         parent="menu_lists_pokemon"
-        action = "types_action_window"
+        action = "type_action_window"
        />
-
-         <!-- action="marca_action_window" -->
-
-<!-- Menu de la sub-barra de Trainers-->
 
 
         <menuitem id ="menu_trainer_template"
-        name ="Trainer"
+        name ="ENTRENADOR"
         sequence="1"
         parent="menu_trainer"
         action="trainer_action_window"
        />
-
-       <menuitem id ="menu_team_template"
-        name ="Teams Pokemon"
-        sequence="2"
-        parent="menu_trainer"
-       />
-
 
 
     </data>

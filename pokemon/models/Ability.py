@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-class Abilities(models.Model):
-    _name = 'pokemon.abilities'
+class Ability(models.Model):
+    _name = 'pokemon.ability'
     _description = "Habilidades de pokemones"
 
     name = fields.Char(string="Habilidad", required =True)
