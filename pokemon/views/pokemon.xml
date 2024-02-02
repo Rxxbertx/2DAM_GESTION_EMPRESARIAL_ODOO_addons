@@ -9,10 +9,10 @@
                 <tree>
                     <field name="name"/>
                     <field name="nickname"/>
+                    <field name="img" widget="image" options="{'zoom': true}"/>
+
                     <field name="pokedex_number"/>
 
-                    <!--image field-->
-                    <field name="img" widget="image" options="{'zoom': true}"/>
 
                     <field name="ability"/>
                     <field name="pokemon_ability"/>
@@ -32,39 +32,26 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_avatar">
+                        <div class="oe_title">
                             <h1>
-                                <field name="pokedex_number" readonly="true"/>
+                                <field name="nickname" placeholder="Nombre del pokemon"/>
                             </h1>
                         </div>
-                        <div class="oe_title mb32">
-                            <h1>
-                                <field name="apodo" placeholder="Nombre del pokemon"/>
-                            </h1>
-
-                        </div>
-                        <group name="group_top">
-
-                            <group name="group_left">
-
-
-                                <group name="group_izq">
-                                    <field name="type_1"/>
-                                    <field name="ability"/>
-
-                                </group>
-
-                                <group name="group_der">
-                                    <field name="type_2"/>
-                                    <field name="hidden_ability"/>
-                                </group>
-                            </group>
-                            <group name="group_right">
-                                <field name="img"/>
-                                <field name="atk"/>
-                                <field name="hp"/>
-                                <field name="defense"/>
-                            </group>
+                        <group string="Información de la Especie">
+                            <field name="specie"/>
+                            <field name="pokedex_number"/>
+                            <field name="name"/>
+                            <field name="type_1"/>
+                            <field name="type_2"/>
+                            <field name="ability"/>
+                            <field name="hidden_ability"/>
+                        </group>
+                        <group string="Información del Pokemon">
+                            <field name="pokemon_ability"/>
+                            <field name="atk"/>
+                            <field name="hp"/>
+                            <field name="defense"/>
+                            <field name="img" widget="image" options="{'zoom': true}"/>
                         </group>
                     </sheet>
                 </form>

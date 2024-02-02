@@ -23,7 +23,7 @@ services:
     image: odoo:latest
     volumes:
       - odoo:/var/lib/odoo
-      - ../2DAM_GESTION_EMPRESARIAL_ODOO_addons:/mnt/extra-addons
+      - ..\2DAM_GESTION_EMPRESARIAL_ODOO_addons:/mnt/extra-addons
     ports:
       - "8069:8069"
     environment:

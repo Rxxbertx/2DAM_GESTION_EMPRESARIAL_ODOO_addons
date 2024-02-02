@@ -43,3 +43,6 @@ class Specie(models.Model):
     def _get_next_pokedex_number(self):
         last_number = self.search([], order='pokedex_number desc', limit=1).pokedex_number
         return last_number + 1 if last_number else 1
+
+
+
