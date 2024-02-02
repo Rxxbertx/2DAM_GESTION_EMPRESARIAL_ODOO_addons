@@ -34,6 +34,13 @@
         action = "ability_action_window"
        />
 
+        <menuitem id ="menu_pokemon_template"
+        name ="POKEMONES"
+        sequence="4"
+        parent="menu_lists_pokemon"
+        action = "pokemon_action_window"
+       />
+
         <menuitem id ="menu_type_template"
         name ="TIPOS"
         sequence="3"

@@ -21,13 +21,10 @@
         <form>
           <sheet>
             <group name="group_top">
-              <group name="group_left">       
+                <group string="Trainer Information"/>
                 <field name="trainer_name"/>
                  <field name="team"/>
-              </group>
-              <group name ="group_right">
-               
-              </group>
+
             </group>
           </sheet>       
         </form>
