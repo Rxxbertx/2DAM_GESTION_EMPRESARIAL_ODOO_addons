@@ -6,6 +6,3 @@ class Trainer(models.Model):
 
     trainer_name = fields.Char(string="Nombre del entrenador", required = True)
     team = fields.One2many(comodel_name="pokemon.pokemon", inverse_name="trainer", required=True)
-
-    # aqui va el campo que se va a calcular maximo 6 pokemones
-

@@ -15,9 +15,9 @@ class Specie(models.Model):
 
     img = fields.Image(string="Imagen")
 
-    ability = fields.Many2many(comodel_name="pokemon.ability", string="Habilidades")
+    abilities = fields.Many2many(comodel_name="pokemon.abilities", string="Habilidades")
 
-    hidden_ability = fields.Many2one(comodel_name="pokemon.ability", string="Habilidad Oculta", compute="_compute_hidden_ability", store=True)
+    hidden_ability = fields.Many2one(comodel_name="pokemon.abilities", string="Habilidad Oculta", compute="_compute_hidden_ability", store=True)
 
     type_1 = fields.Many2one(comodel_name="pokemon.type", string="Primer tipo del pokemon")
 
@@ -31,11 +31,11 @@ class Specie(models.Model):
 
     last_pokedex_number = fields.Integer(string="Último número de Pokedex", default=0)
 
-    @api.depends('ability')
+    @api.depends('abilities')
     def _compute_hidden_ability(self):
         for record in self:
-            if record.ability:
-                record.hidden_ability = record.ability[-1].id
+            if record.abilities:
+                record.hidden_ability = record.abilities[-1].id
             else:
                 record.hidden_ability = False
 

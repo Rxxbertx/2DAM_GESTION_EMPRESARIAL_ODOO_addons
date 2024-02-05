@@ -13,7 +13,7 @@
                     <!--image field-->
                     <field name="img" widget="image" options="{'zoom': true}"/>
 
-                    <field name="ability"/>
+                    <field name="abilities"/>
                     <field name="hidden_ability"/>
                     <field name="type_1"/>
                     <field name="type_2"/>
@@ -50,7 +50,7 @@
 
                                 <group name="group_izq">
                                     <field name="type_1"/>
-                                    <field name="ability"/>
+                                    <field name="abilities"/>
 
                                 </group>
 

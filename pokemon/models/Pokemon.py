@@ -13,9 +13,9 @@ class Pokemon(models.Model):
 
     name = fields.Char(related='specie.name', string="Nombre Especie", required=True)
 
-    trainer = fields.Many2one(comodel_name="pokemon.trainer", required=True, string="Entrenador")
+    trainer = fields.Many2one(comodel_name="pokemon.trainer", string="Entrenador")
     img = fields.Image(string="Imagen")
-    ability = fields.Many2many(related='specie.ability', string="Habilidades")
+    abilities = fields.Many2many(related='specie.abilities', string="Habilidades")
     hidden_ability = fields.Many2one(related='specie.hidden_ability', string="Habilidad Oculta")
     type_1 = fields.Many2one(related='specie.type_1', string="Primer tipo del pokemon")
     type_2 = fields.Many2one(related='specie.type_2', string="Segundo tipo del pokemon")
@@ -24,7 +24,7 @@ class Pokemon(models.Model):
     defense = fields.Integer(string="Defensa", required=True)
     pokedex_number = fields.Integer(related='specie.pokedex_number', string="Número de Pokedex")
     pokemon_ability = fields.Many2one(
-        comodel_name="pokemon.ability",
+        comodel_name="pokemon.abilities",
         string="Habilidad Pokemon"
     )
 
@@ -55,6 +55,6 @@ class Pokemon(models.Model):
     @api.onchange('specie')
     def _onchange_specie(self):
         if self.specie:
-            return {'domain': {'pokemon_ability': [('id', 'in', self.specie.ability.ids)]}}
+            return {'domain': {'pokemon_ability': [('id', 'in', self.specie.abilities.ids)]}}
         else:
             return {'domain': {'pokemon_ability': []}}

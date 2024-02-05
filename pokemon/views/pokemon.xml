@@ -14,7 +14,7 @@
                     <field name="pokedex_number"/>
 
 
-                    <field name="ability"/>
+                    <field name="abilities"/>
                     <field name="pokemon_ability"/>
                     <field name="hidden_ability"/>
                     <field name="type_1"/>
@@ -43,7 +43,7 @@
                             <field name="name"/>
                             <field name="type_1"/>
                             <field name="type_2"/>
-                            <field name="ability"/>
+                            <field name="abilities"/>
                             <field name="hidden_ability"/>
                         </group>
                         <group string="Información del Pokemon">

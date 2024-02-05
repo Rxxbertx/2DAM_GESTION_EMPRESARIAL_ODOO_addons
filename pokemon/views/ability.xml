@@ -1,8 +1,8 @@
 <odoo>
   <data>
     <record model="ir.ui.view" id="pokemon_ability_list">
-      <field name="name">pokemon.ability.list</field>
-      <field name="model">pokemon.ability</field>
+      <field name="name">pokemon.abilities.list</field>
+      <field name="model">pokemon.abilities</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -11,8 +11,8 @@
     </record>
 
     <record model="ir.ui.view" id="taller_ability_form">
-      <field name="name">pokemon.ability.form</field>
-      <field name="model">pokemon.ability</field>
+      <field name="name">pokemon.abilities.form</field>
+      <field name="model">pokemon.abilities</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
@@ -28,7 +28,7 @@
 
     <record model="ir.actions.act_window" id="ability_action_window">
       <field name="name">HABILIDADES</field>
-      <field name="res_model">pokemon.ability</field>
+      <field name="res_model">pokemon.abilities</field>
       <field name="view_mode">tree,form</field>
 
 
