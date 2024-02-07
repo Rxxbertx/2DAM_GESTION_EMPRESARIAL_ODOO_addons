@@ -25,8 +25,26 @@ class Pokemon(models.Model):
     pokedex_number = fields.Integer(related='specie.pokedex_number', string="Número de Pokedex")
     pokemon_ability = fields.Many2one(
         comodel_name="pokemon.abilities",
-        string="Habilidad Pokemon"
+        string="Habilidad Pokemon",
     )
+
+    specie_abilities_ids = fields.Many2many(
+        comodel_name="pokemon.abilities",
+        compute="_compute_specie_abilities_ids",
+        store=True,
+    )
+
+    @api.depends('specie')
+    def _compute_specie_abilities_ids(self):
+        for record in self:
+            if record.specie:
+                record.specie_abilities_ids = record.specie.abilities.ids
+            else:
+                record.specie_abilities_ids = []
+
+    @api.onchange('specie_abilities_ids')
+    def _onchange_specie_abilities_ids(self):
+        return {'domain': {'pokemon_ability': [('id', 'in', self.specie_abilities_ids.ids)]}}
 
     @api.constrains('atk', 'defense', 'hp')
     def _check_stats(self):
@@ -52,9 +70,3 @@ class Pokemon(models.Model):
             if len(record.trainer.team) > 6:
                 raise ValidationError("Un entrenador no puede tener más de 6 pokémon.")
 
-    @api.onchange('specie')
-    def _onchange_specie(self):
-        if self.specie:
-            return {'domain': {'pokemon_ability': [('id', 'in', self.specie.abilities.ids)]}}
-        else:
-            return {'domain': {'pokemon_ability': []}}

@@ -45,6 +45,8 @@
                             <field name="type_2"/>
                             <field name="abilities"/>
                             <field name="hidden_ability"/>
+                            <field name="specie_abilities_ids" invisible="1"/>
+
                         </group>
                         <group string="Información del Pokemon">
                             <field name="pokemon_ability"/>
