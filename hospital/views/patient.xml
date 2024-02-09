@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="hospital_patient_tree">
+      <field name="name">hospital patient list</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+                <tree string="Patient">
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="date_of_birth" widget="date"/>
+                    <field name="gender"/>
+                    <field name="address"/>
+                    <field name="phone" widget="phone"/>
+                    <field name="allergies"/>
+                    <field name="preexisting_conditions"/>
+                </tree>
+      </field>
+    </record>
+
+     <record id="hospital_patient_form" model="ir.ui.view">
+            <field name="name">hospital patient form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient" class="oe_form_sheet">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h2>
+                                <i class='fa fa-user'></i>
+                                <field name="name"/>
+                            </h2>
+                        </div>
+                        <notebook>
+                            <page string="General">
+                                <group>
+                                    <label for="last_name" string="Last Name"/>
+                                    <h2>
+                                        <i class='fa fa-user'></i>
+                                        <field name="last_name"/>
+                                    </h2>
+                                    <label for="date_of_birth" string="Date of Birth"/>
+                                    <h2>
+                                        <i class='fa fa-calendar'></i>
+                                        <field name="date_of_birth" widget="date"/>
+                                    </h2>
+                                    <label for="gender" string="Gender"/>
+                                    <h2>
+                                        <i class='fa fa-venus-mars'></i>
+                                        <field name="gender"/>
+                                    </h2>
+                                    <label for="address" string="Address"/>
+                                    <h2>
+                                        <i class='fa fa-home'></i>
+                                        <field name="address"/>
+                                    </h2>
+                                    <label for="phone" string="Phone"/>
+                                    <h2>
+                                        <i class='fa fa-phone'></i>
+                                        <field name="phone" widget="phone"/>
+                                    </h2>
+                                </group>
+                            </page>
+                            <page string="Medical">
+                                <group>
+                                    <label for="allergies" string="Allergies"/>
+                                    <h2>
+                                        <i class='fa fa-warning'></i>
+                                        <field name="allergies" widget="html"/>
+                                    </h2>
+                                    <label for="preexisting_conditions" string="Preexisting Conditions"/>
+                                    <h2>
+                                        <i class='fa fa-heartbeat'></i>
+                                        <field name="preexisting_conditions" widget="html"/>
+                                    </h2>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+  </data>
+</odoo>

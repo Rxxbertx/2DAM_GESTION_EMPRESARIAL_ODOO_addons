@@ -1,0 +1,62 @@
+a[data-menu-xmlid="hospital.hospital_menu_root"] {
+
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
+  border-radius: 10px;
+  text-align: center;
+  font-size: large;
+}
+
+
+a[data-menu-xmlid="hospital.hospital_menu_root"]::before {
+  content: "\f015";
+  font-family: 'FontAwesome', serif;
+  font-size: 20px;
+}
+
+
+a[data-menu-xmlid="hospital.hospital_menu_root"]:hover {
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #868690 10px), repeating-linear-gradient(rgba(85, 89, 179, 0.33), #2127a4);
+}
+
+
+a[data-menu-xmlid="hospital.menu_patient"]::before {
+  content: '\f0f0';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_bed"]::before {
+  content: '\f236';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_floor"]::before {
+  content: '\f0c8';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_doctor"]::before {
+  content: '\f0e3';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_admission_history"]::before {
+  content: '\f15c';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+

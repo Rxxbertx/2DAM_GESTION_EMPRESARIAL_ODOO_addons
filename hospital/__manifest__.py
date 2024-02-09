@@ -21,12 +21,17 @@ hospital
     'auto_install': False,
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['web', 'base'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'views/patient.xml',
+        'views/extendedpatient.xml',
         'views/menu.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'hospital/static/src/scss/menus.scss',
+        ],
+    },
 }
-
