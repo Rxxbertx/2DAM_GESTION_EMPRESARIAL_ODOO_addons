@@ -10,3 +10,4 @@ class Floor(models.Model):
     occupied_beds = fields.Integer(string='Occupied Beds')
     available_beds = fields.Integer(string='Available Beds')
     beds_ids = fields.One2many('hospital.bed', 'floor_id', string='Beds')
+

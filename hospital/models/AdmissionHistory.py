@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.exceptions import ValidationError
 
 
 class AdmissionHistory(models.Model):
@@ -11,3 +12,6 @@ class AdmissionHistory(models.Model):
     discharge_date = fields.Datetime(string='Discharge Date and Time')
     diagnosis = fields.Text(string='Diagnosis')
     treatment = fields.Text(string='Treatment')
+
+
+
