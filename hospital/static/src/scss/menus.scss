@@ -1,0 +1,83 @@
+a[data-menu-xmlid="hospital.hospital_menu_root"] {
+
+  background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
+  transition: 0.5s;
+  background-size: 200% auto;  border-radius: 10px;
+  text-align: center;
+  color: black;
+  font-size: large;
+}
+
+
+a[data-menu-xmlid="hospital.hospital_menu_root"]::before {
+  content: "\f015";
+  font-family: 'FontAwesome', serif;
+  font-size: 20px;
+}
+
+
+a[data-menu-xmlid="hospital.hospital_menu_root"]:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;}
+
+
+a[data-menu-xmlid="hospital.menu_patient"]::before {
+  content: '\f0f0';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_bed"]::before {
+  content: '\f236';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_floor"]::before {
+  content: '\f0c8';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_doctor"]::before {
+  content: '\f0e3';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+a[data-menu-xmlid="hospital.menu_admission_history"]::before {
+  content: '\f15c';
+  font-family: 'FontAwesome', serif;
+  margin-right: 5px;
+}
+
+
+
+.o_menu_sections {
+  
+  justify-content: center;
+}
+.o_main_navbar{
+  background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+}
+
+.o_main_navbar:hover {
+  background-position: center center; /* change the direction of the change here */
+}
+
+
+.o_main_navbar .o_menu_sections .o_nav_entry, .o_main_navbar .o_menu_sections .dropdown-toggle {
+  background: var(--NavBar-entry-backgroundColor, transparent);
+  background: transparent;
+  border-radius: 10px;
+  margin: 0px 10px;
+}
+
+

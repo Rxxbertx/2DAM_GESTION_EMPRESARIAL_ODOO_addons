@@ -40,7 +40,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'taller/static/src/scss/style.scss',
+            'taller/static/src/scss/menus.scss',
         ],
     },
 }

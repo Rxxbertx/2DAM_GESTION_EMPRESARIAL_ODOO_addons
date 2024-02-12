@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_frontend" name="hospital assets">
+        <style type="text/css">
+            .oe_secondary_menu_section {
+                background-color: #f8f9fa;
+                color: #343a40;
+                border-radius: 5px;
+                margin: 10px 0;
+                padding: 10px;
+            }
+
+            .oe_menu_text {
+                color: #007bff;
+            }
+        </style>
+    </template>
+</odoo>
