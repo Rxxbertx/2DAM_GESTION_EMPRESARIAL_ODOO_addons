@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Patient(models.Model):
@@ -9,6 +10,7 @@ class Patient(models.Model):
     last_name = fields.Char(string='Last Name', required=True)
     date_of_birth = fields.Date(string='Date of Birth')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], string='Gender')
+    age = fields.Integer(string='Age', compute='_get_age', store=True)
     address = fields.Text(string='Address')
     phone = fields.Char(string='Phone')
     allergies = fields.Text(string='Allergies')
