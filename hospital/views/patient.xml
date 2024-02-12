@@ -15,7 +15,6 @@
                     <field name="age"/>
                     <field name="gender" widget="badge" decoration-danger="gender == 'female'"
                            decoration-success="gender == 'male'"/>
-                    <field name="address"/>
                     <field name="phone" widget="phone"/>
                     <field name="doctor_id"/>
                     <field name="bed_id" widget="badge"/>
