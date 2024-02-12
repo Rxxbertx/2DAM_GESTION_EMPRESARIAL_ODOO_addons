@@ -55,7 +55,7 @@
 
 
 
- 
+  
     <record id="view_admission_history_kanban" model="ir.ui.view">
         <field name="name">admission.history.kanban</field>
         <field name="model">hospital.admission.history</field>
@@ -84,13 +84,7 @@
         </field>
     </record>
 
-    <record id="action_admission_history" model="ir.actions.act_window">
-        <field name="name">Admission History</field>
-        <field name="res_model">hospital.admission.history</field>
-        <field name="view_mode">tree,form,kanban</field>
-    </record>
 
-    <menuitem id="menu_admission_history" name="Admission History" parent="menu_hospital" action="action_admission_history"/>
 
 
 
