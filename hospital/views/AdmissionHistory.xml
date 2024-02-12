@@ -5,7 +5,9 @@
         <field name="model">hospital.admission.history</field>
         <field name="arch" type="xml">
             <tree string="Admission History">
-                <field name="patient_id"/>
+                <field name="patient_id" />
+                 <field name="patient_last_name"/>
+                  <field name="patient_admitted"/>
                 <field name="floor_id"/>
                 <field name="bed_id"/>
                 <field name="admission_date"/>
@@ -14,27 +16,44 @@
         </field>
     </record>
 
-    <record id="view_admission_history_form" model="ir.ui.view">
-        <field name="name">admission.history.form</field>
-        <field name="model">hospital.admission.history</field>
-        <field name="arch" type="xml">
-            <form string="Admission History">
-                <sheet>
-                    <group>
+  <record id="view_admission_history_form" model="ir.ui.view">
+    <field name="name">admission.history.form</field>
+    <field name="model">hospital.admission.history</field>
+    <field name="arch" type="xml">
+        <form string="Admission History" style="width: 100%;">
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <!-- Icono de usuario junto al campo del paciente -->
+                        <i class="fa fa-user" style="font-size: 20px;"/>
                         <field name="patient_id"/>
+                    </h1>
+                </div>
+                <group>
+                    <!-- Campo de nombre del paciente -->
                     <field name="patient_name"/>
+                    <!-- Campo de apellido del paciente -->
                     <field name="patient_last_name"/>
-                    <field name="patient_phone"/>
-                        <field name="patient_admitted"/>
+                      <!-- Campo de teléfono del paciente -->
+                       <field name="patient_phone"/>
+                </group>
+                <group>
+                    <!-- Campo de admisión del paciente -->
+                    <field name="patient_admitted"/>
+                </group>
+                <group>
+                    <!-- Campos de piso, cama, fecha de admisión y fecha de salida -->
                     <field name="floor_id"/>
                     <field name="bed_id"/>
                     <field name="admission_date"/>
                     <field name="discharge_date"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
 
     <record id="view_admission_history_kanban" model="ir.ui.view">
         <field name="name">admission.history.kanban</field>
