@@ -13,8 +13,3 @@ class Bed(models.Model):
                             string='Bed Type')
     patient_id = fields.One2many('hospital.extended.patient', 'bed_id', string='Patient')
 
-    @api.constrains('state')
-    def _check_state(self):
-        for bed in self:
-            if bed.state == 'occupied':
-                raise ValidationError("Bed is occupied")
