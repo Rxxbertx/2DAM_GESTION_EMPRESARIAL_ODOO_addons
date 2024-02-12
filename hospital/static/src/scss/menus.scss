@@ -1,8 +1,10 @@
 a[data-menu-xmlid="hospital.hospital_menu_root"] {
 
-  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
-  border-radius: 10px;
+  background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
+  transition: 0.5s;
+  background-size: 200% auto;  border-radius: 10px;
   text-align: center;
+  color: black;
   font-size: large;
 }
 
@@ -15,8 +17,9 @@ a[data-menu-xmlid="hospital.hospital_menu_root"]::before {
 
 
 a[data-menu-xmlid="hospital.hospital_menu_root"]:hover {
-  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #868690 10px), repeating-linear-gradient(rgba(85, 89, 179, 0.33), #2127a4);
-}
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;}
 
 
 a[data-menu-xmlid="hospital.menu_patient"]::before {
@@ -55,8 +58,26 @@ a[data-menu-xmlid="hospital.menu_admission_history"]::before {
 
 
 
+.o_menu_sections {
+  
+  justify-content: center;
+}
+.o_main_navbar{
+  background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+}
+
+.o_main_navbar:hover {
+  background-position: center center; /* change the direction of the change here */
+}
 
 
-
+.o_main_navbar .o_menu_sections .o_nav_entry, .o_main_navbar .o_menu_sections .dropdown-toggle {
+  background: var(--NavBar-entry-backgroundColor, transparent);
+  background: transparent;
+  border-radius: 10px;
+  margin: 0px 10px;
+}
 
 

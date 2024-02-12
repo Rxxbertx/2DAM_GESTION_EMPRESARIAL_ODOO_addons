@@ -26,12 +26,16 @@ hospital
     # always loaded
     'data': [
         'views/patient.xml',
-        'views/extendedpatient.xml',
+        'views/floor.xml',
         'views/menu.xml',
+        'data/hospital.extended.patient.csv',
+        'data/hospital.floor.csv',
+        'data/hospital.bed.csv',
     ],
     'assets': {
         'web.assets_backend': [
             'hospital/static/src/scss/menus.scss',
+            'hospital/static/src/scss/views.scss',
         ],
     },
 }

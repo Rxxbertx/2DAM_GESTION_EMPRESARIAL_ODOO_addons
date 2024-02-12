@@ -5,12 +5,9 @@
             <field name="model">hospital.extended.patient</field>
             <field name="inherit_id" ref="hospital.hospital_patient_form"/>
             <field name="arch" type="xml">
+                
                 <xpath expr="//notebook/page[1]/group" position="inside">
-                    <label for="social_security_number" string="Social Security Number"/>
-                    <h2>
-                        <i class='fa fa-id-card'></i>
-                        <field name="social_security_number"/>
-                    </h2>
+                    
                 </xpath>
             </field>
         </record>
@@ -20,7 +17,9 @@
             <field name="model">hospital.extended.patient</field>
             <field name="inherit_id" ref="hospital.hospital_patient_tree"/>
             <field name="arch" type="xml">
-                <!-- Agregar el campo adicional al árbol de pacientes -->
+                <xpath expr="//button[@name='%(action_new)d']" position="attributes">
+                    <attribute name="name">%(action_extended_patient_form)d</attribute>
+                </xpath>
                 <xpath expr="//tree" position="inside">
                     <field name="social_security_number"/>
                 </xpath>

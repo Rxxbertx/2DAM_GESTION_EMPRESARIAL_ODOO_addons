@@ -1,62 +1,77 @@
 <odoo>
-  <data>
+    <data>
 
-    <record model="ir.ui.view" id="hospital_patient_tree">
-      <field name="name">hospital patient list</field>
-      <field name="model">hospital.patient</field>
-      <field name="arch" type="xml">
+        <record model="ir.ui.view" id="hospital_patient_tree">
+            <field name="name">hospital patient list</field>
+            <field name="model">hospital.extended.patient</field>
+            <field name="arch" type="xml">
                 <tree string="Patient">
                     <field name="name"/>
                     <field name="last_name"/>
+                    <field name="social_security_number"/>
+                    <field name="state" widget="badge" decoration-success="state == 'admitted'"/>
                     <field name="date_of_birth" widget="date"/>
-                    <field name="gender"/>
+                    <field name="gender" widget="badge" decoration-danger="gender == 'female'"
+                           decoration-success="gender == 'male'"/>
                     <field name="address"/>
                     <field name="phone" widget="phone"/>
-                    <field name="allergies"/>
-                    <field name="preexisting_conditions"/>
+                    <field name="doctor_id"/>
+                    <field name="bed_id"/>
+                    
                 </tree>
-      </field>
-    </record>
+            </field>
+        </record>
 
-     <record id="hospital_patient_form" model="ir.ui.view">
+        <record id="hospital_patient_form" model="ir.ui.view">
             <field name="name">hospital patient form</field>
-            <field name="model">hospital.patient</field>
+            <field name="model">hospital.extended.patient</field>
             <field name="arch" type="xml">
                 <form string="Patient" class="oe_form_sheet">
                     <sheet>
-                        <div class="oe_title">
+                        <div class="oe_title" style="float:left">
                             <label for="name" class="oe_edit_only"/>
                             <h2>
-                                <i class='fa fa-user'></i>
+                                <i class='fa fa-user'/>
                                 <field name="name"/>
                             </h2>
+                        </div>
+                        <div style="float:right">
+                            <field name="state" widget="statusbar"/>
+                            <br/>
+                            
+                                <button name="discharge" string="Discharge" type="object" class="btn-primary"/>
                         </div>
                         <notebook>
                             <page string="General">
                                 <group>
                                     <label for="last_name" string="Last Name"/>
                                     <h2>
-                                        <i class='fa fa-user'></i>
+                                        <i class='fa fa-user'/>
                                         <field name="last_name"/>
+                                    </h2>
+                                    <label for="social_security_number" string="Social Security Number"/>
+                                    <h2>
+                                        <i class='fa fa-id-card'/>
+                                        <field name="social_security_number"/>
                                     </h2>
                                     <label for="date_of_birth" string="Date of Birth"/>
                                     <h2>
-                                        <i class='fa fa-calendar'></i>
+                                        <i class='fa fa-calendar'/>
                                         <field name="date_of_birth" widget="date"/>
                                     </h2>
                                     <label for="gender" string="Gender"/>
                                     <h2>
-                                        <i class='fa fa-venus-mars'></i>
+                                        <i class='fa fa-venus-mars'/>
                                         <field name="gender"/>
                                     </h2>
                                     <label for="address" string="Address"/>
                                     <h2>
-                                        <i class='fa fa-home'></i>
+                                        <i class='fa fa-home'/>
                                         <field name="address"/>
                                     </h2>
                                     <label for="phone" string="Phone"/>
                                     <h2>
-                                        <i class='fa fa-phone'></i>
+                                        <i class='fa fa-phone'/>
                                         <field name="phone" widget="phone"/>
                                     </h2>
                                 </group>
@@ -65,22 +80,120 @@
                                 <group>
                                     <label for="allergies" string="Allergies"/>
                                     <h2>
-                                        <i class='fa fa-warning'></i>
+                                        <i class='fa fa-warning'/>
                                         <field name="allergies" widget="html"/>
                                     </h2>
                                     <label for="preexisting_conditions" string="Preexisting Conditions"/>
                                     <h2>
-                                        <i class='fa fa-heartbeat'></i>
+                                        <i class='fa fa-heartbeat'/>
                                         <field name="preexisting_conditions" widget="html"/>
                                     </h2>
                                 </group>
                             </page>
+                            <page string="Doctor">
+                                <group>
+                                    <label for="doctor_id" string="doctor"/>
+                                    <h2>
+                                        <i class='fa fa-user-md'/>
+                                        <field name="doctor_id"/>
+                                    </h2>
+                                </group>
+                            </page>
+                            <page string="Bed">
+                                <group>
+                                    <label for="bed_id" string="Bed"/>
+                                    <h2>
+                                        <i class='fa fa-bed'/>
+                                        <field name="bed_id"/>
+                                    </h2>
+                                </group>
+                            </page>
                         </notebook>
+                        
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <record id="hospital_patient_kanban" model="ir.ui.view">
+            <field name="name">hospital.patient.kanban</field>
+            <field name="model">hospital.extended.patient</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_view">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="oe_kanban_details">
+                                        <field name="state" widget="statusbar"/>
+                                        <div class="kanban_title">
+                                            <strong class="o_kanban_record_title">
+                                                <i class="fa fa-user"/>
+                                                <field name="name"/>
+                                            </strong>
+                                        </div>
+                                        <div class="kanban_left">
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-id-card"/>
+                                                <field name="last_name"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-phone"/>
+                                                <field name="phone"/>
+                                            </div>
+                                            
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-user"/>
+                                                <field name="doctor_id"/>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="kanban_right">
+                                            
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-birthday-cake"/>
+                                                <field name="date_of_birth"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle"
+                                                 t-attf-class="{{ record.gender.raw_value == 'male' ? 'male' : record.gender.raw_value == 'female' ? 'female' : 'other' }}">
+                                                <i class="fa fa-venus-mars"/>
+                                                <field name="gender"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-bed"/>
+                                                <field name="bed_id"/>
+                                            </div>
+                                            
+                                            
+                                            
+                                        </div>
+                                        <div class="kanban_bottom">
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-id-card"/>
+                                                <field name="social_security_number"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-home"/>
+                                                <field name="address"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-warning"/>
+                                                <field name="allergies"/>
+                                            </div>
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-heartbeat"/>
+                                                <field name="preexisting_conditions"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
-  </data>
+    </data>
 </odoo>
