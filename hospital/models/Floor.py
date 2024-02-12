@@ -26,3 +26,13 @@ class Floor(models.Model):
     def _compute_available_beds(self):
         for record in self:
             record.available_beds = len(record.beds_ids.filtered(lambda bed: bed.state == 'available'))
+
+
+
+    @api.constrains('name')
+    def check_name(self):
+        for record in self:
+            if record.name and len(record.name) < 3:
+                raise models.ValidationError("The name must have at least 3 characters.")
+            if record.name and self.env['hospital.floor'].search_count([('name', '=', record.name)]) > 1:
+                raise models.ValidationError("The name must be unique.")
