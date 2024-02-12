@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo import models, fields
 
 
 class Patient(models.Model):
@@ -39,3 +38,19 @@ class Patient(models.Model):
         self.bed_id.state = 'available'
         self.bed_id = False
         self.state = 'not_admitted'
+
+    # Creamos una funcion que nos devuelva el nombre completo del paciente
+    @api.depends('name', 'last_name')
+    def _get_full_name(self):
+        for patient in self:
+            patient.full_name = patient.name + ' ' + patient.last_name
+
+    # Creamos una funcion que nos devuelva la edad del paciente
+    @api.depends('date_of_birth')
+    def _get_age(self):
+        for patient in self:
+            if patient.date_of_birth:
+                today = fields.Date.today()
+                dob = fields.Datetime.from_string(patient.date_of_birth)
+                age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+                patient.age = age
