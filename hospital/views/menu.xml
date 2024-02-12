@@ -6,31 +6,31 @@
     <record id="action_bed" model="ir.actions.act_window">
         <field name="name">Beds</field>
         <field name="res_model">hospital.bed</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_floor" model="ir.actions.act_window">
         <field name="name">Floors</field>
         <field name="res_model">hospital.floor</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_doctor" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="res_model">hospital.doctor</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_admission_history" model="ir.actions.act_window">
         <field name="name">Admission History</field>
         <field name="res_model">hospital.admission.history</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hospital.extended.patient</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     
     

@@ -27,6 +27,7 @@ hospital
     'data': [
         'views/patient.xml',
         'views/floor.xml',
+        'views/bed.xml',
         'views/menu.xml',
         'data/hospital.extended.patient.csv',
         'data/hospital.floor.csv',
