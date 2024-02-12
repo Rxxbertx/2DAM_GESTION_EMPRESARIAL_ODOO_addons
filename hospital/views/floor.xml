@@ -1,0 +1,73 @@
+<odoo>
+    
+
+<data>
+    
+<record id="view_floor_tree" model="ir.ui.view">
+    <field name="name">floor.tree</field>
+    <field name="model">hospital.floor</field>
+    <field name="arch" type="xml">
+        <tree string="Floor" class="oe_kanban_card">
+            <field name="name"/>
+            <field name="total_beds"/>
+            <field name="occupied_beds"/>
+            <field name="available_beds"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_floor_form" model="ir.ui.view">
+<field name="name">floor.form</field>
+<field name="model">hospital.floor</field>
+<field name="arch" type="xml">
+    <form string="Floor" class="oe_form_sheet">
+        <sheet>
+            <group>
+                <field name="name"/>
+                <field name="total_beds"/>
+                <field name="occupied_beds"/>
+                <field name="available_beds"/>
+                <field name="beds_ids" widget="one2many_list"/>
+            </group>
+        </sheet>
+    </form>
+</field>
+</record>
+
+<record id="view_floor_kanban" model="ir.ui.view">
+<field name="name">floor.kanban</field>
+<field name="model">hospital.floor</field>
+<field name="arch" type="xml">
+    <kanban class="o_kanban_view">
+        <templates>
+            <t t-name="kanban-box">
+                <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                    <div class="oe_kanban_content">
+                        <div class="oe_kanban_details">
+                            <strong class="o_kanban_record_title">
+                                <field name="name"/>
+                            </strong>
+                            <div>
+                                <field name="occupied_beds" widget="gauge"
+                                       options="{'max_field': 'total_beds'}">
+                                    Floor Occupations
+                                </field>
+
+
+                            </div>
+                            <ul>
+                                <li>Total Beds: <field name="total_beds"/></li>
+                                <li>Occupied Beds: <field name="occupied_beds"/></li>
+                                <li>Available Beds: <field name="available_beds"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </templates>
+    </kanban>
+</field>
+</record>
+
+</data>
+</odoo>
