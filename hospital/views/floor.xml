@@ -23,7 +23,7 @@
     <form string="Floor" class="oe_form_sheet">
         <sheet>
             <group>
-                <field name="name"/>
+                <field name="name" placeholder="Floor Name"/>
                 <field name="total_beds"/>
                 <field name="occupied_beds"/>
                 <field name="available_beds"/>

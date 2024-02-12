@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo import models, fields
 
 
 class Bed(models.Model):
@@ -12,4 +11,3 @@ class Bed(models.Model):
     type = fields.Selection([('normal', 'Normal'), ('intensive_care', 'Intensive Care'), ('pediatric', 'Pediatric')],
                             string='Bed Type')
     patient_id = fields.One2many('hospital.extended.patient', 'bed_id', string='Patient')
-
