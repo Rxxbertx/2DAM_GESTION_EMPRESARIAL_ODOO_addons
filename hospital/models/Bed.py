@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Bed(models.Model):
@@ -10,3 +11,9 @@ class Bed(models.Model):
     state = fields.Selection([('occupied', 'Occupied'), ('available', 'Available')], string='State')
     type = fields.Selection([('normal', 'Normal'), ('intensive_care', 'Intensive Care'), ('pediatric', 'Pediatric')],
                             string='Bed Type')
+
+    @api.constrains('state')
+    def _check_state(self):
+        for bed in self:
+            if bed.state == 'occupied':
+                raise ValidationError("Bed is occupied")
