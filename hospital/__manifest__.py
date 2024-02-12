@@ -28,6 +28,7 @@ hospital
         'views/patient.xml',
         'views/floor.xml',
         'views/menu.xml',
+        'views/AdmissionHistory.xml',
         'data/hospital.extended.patient.csv',
         'data/hospital.floor.csv',
         'data/hospital.bed.csv',

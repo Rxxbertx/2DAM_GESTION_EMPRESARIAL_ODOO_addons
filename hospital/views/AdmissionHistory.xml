@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Admission History">
                 <field name="patient_id"/>
+                <field name="floor_id"/>
                 <field name="bed_id"/>
                 <field name="admission_date"/>
                 <field name="discharge_date"/>
@@ -21,9 +22,14 @@
                 <sheet>
                     <group>
                         <field name="patient_id"/>
-                        <field name="bed_id"/>
-                        <field name="admission_date"/>
-                        <field name="discharge_date"/>
+                    <field name="patient_name"/>
+                    <field name="patient_last_name"/>
+                    <field name="patient_phone"/>
+                        <field name="patient_admitted"/>
+                    <field name="floor_id"/>
+                    <field name="bed_id"/>
+                    <field name="admission_date"/>
+                    <field name="discharge_date"/>
                     </group>
                 </sheet>
             </form>

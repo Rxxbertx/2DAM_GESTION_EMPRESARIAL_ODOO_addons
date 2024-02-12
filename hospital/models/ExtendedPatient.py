@@ -7,3 +7,4 @@ class ExtendedPatient(models.Model):
     _inherit = 'hospital.patient'
 
     social_security_number = fields.Char(string='Social Security Number')
+

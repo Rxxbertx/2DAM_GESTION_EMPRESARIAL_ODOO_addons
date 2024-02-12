@@ -6,12 +6,18 @@ class AdmissionHistory(models.Model):
     _name = 'hospital.admission.history'
     _description = 'Patient Admission History'
 
-    patient_id = fields.Many2one('hospital.patient', string='Patient')
+    patient_id = fields.Many2one('hospital.extended.patient', string='Patient')
+    floor_id = fields.Many2one('hospital.floor', string='Floor')
     bed_id = fields.Many2one('hospital.bed', string='Bed')
     admission_date = fields.Datetime(string='Admission Date and Time')
     discharge_date = fields.Datetime(string='Discharge Date and Time')
     diagnosis = fields.Text(string='Diagnosis')
     treatment = fields.Text(string='Treatment')
+
+    patient_name = fields.Char(string='Patient Name', related='patient_id.name', readonly=True)
+    patient_last_name = fields.Char(string='Patient Last Name', related='patient_id.last_name', readonly=True)
+    patient_phone = fields.Char(string='Patient Phone', related='patient_id.phone', readonly=True)
+    patient_admitted = fields.Selection(string='Admitted', related='patient_id.state', readonly=True)
 
     # Creamos una constraint de que el paciente no puede tener dos camas asignadas
     @api.constrains('patient_id')
