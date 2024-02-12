@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Bed(models.Model):
@@ -12,4 +13,8 @@ class Bed(models.Model):
                             string='Bed Type')
     patient_id = fields.One2many('hospital.extended.patient', 'bed_id', string='Patient')
 
-# aplicar restricciones de integridad, por ejemplo que el nombre de la cama sea único en el sistema
+    @api.constrains('state')
+    def _check_state(self):
+        for bed in self:
+            if bed.state == 'occupied':
+                raise ValidationError("Bed is occupied")
