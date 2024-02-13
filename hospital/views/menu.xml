@@ -32,6 +32,8 @@
         <field name="res_model">hospital.extended.patient</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
+
+
     
     
 
