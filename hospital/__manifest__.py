@@ -27,10 +27,14 @@ hospital
     'data': [
         'views/patient.xml',
         'views/floor.xml',
+        'views/bed.xml',
+        'views/doctor.xml',
         'views/menu.xml',
         'data/hospital.extended.patient.csv',
         'data/hospital.floor.csv',
         'data/hospital.bed.csv',
+        'data/hospital.doctor.csv',
+        
     ],
     'assets': {
         'web.assets_backend': [

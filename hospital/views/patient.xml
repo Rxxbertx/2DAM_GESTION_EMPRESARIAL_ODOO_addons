@@ -8,15 +8,16 @@
                 <tree string="Patient">
                     <field name="name"/>
                     <field name="last_name"/>
+                    
                     <field name="social_security_number"/>
                     <field name="state" widget="badge" decoration-success="state == 'admitted'"/>
                     <field name="date_of_birth" widget="date"/>
+                    <field name="age"/>
                     <field name="gender" widget="badge" decoration-danger="gender == 'female'"
                            decoration-success="gender == 'male'"/>
-                    <field name="address"/>
                     <field name="phone" widget="phone"/>
                     <field name="doctor_id"/>
-                    <field name="bed_id"/>
+                    <field name="bed_id" widget="badge"/>
                     
                 </tree>
             </field>
@@ -32,7 +33,8 @@
                             <label for="name" class="oe_edit_only"/>
                             <h2>
                                 <i class='fa fa-user'/>
-                                <field name="name"/>
+                                <field name="name" widget="char" placeholder="Patient Name"/>
+                                <field name="age"/>
                             </h2>
                         </div>
                         <div style="float:right">
@@ -44,15 +46,15 @@
                         <notebook>
                             <page string="General">
                                 <group>
-                                    <label for="last_name" string="Last Name"/>
+                                    <label for="last_name" string="Last Name" />
                                     <h2>
                                         <i class='fa fa-user'/>
-                                        <field name="last_name"/>
+                                        <field name="last_name" widget="char" placeholder="Last Name"/>
                                     </h2>
                                     <label for="social_security_number" string="Social Security Number"/>
                                     <h2>
                                         <i class='fa fa-id-card'/>
-                                        <field name="social_security_number"/>
+                                        <field name="social_security_number" placeholder="Social Security Number"/>
                                     </h2>
                                     <label for="date_of_birth" string="Date of Birth"/>
                                     <h2>
@@ -62,17 +64,17 @@
                                     <label for="gender" string="Gender"/>
                                     <h2>
                                         <i class='fa fa-venus-mars'/>
-                                        <field name="gender"/>
+                                        <field name="gender" widget="selection"/>
                                     </h2>
                                     <label for="address" string="Address"/>
                                     <h2>
                                         <i class='fa fa-home'/>
-                                        <field name="address"/>
+                                        <field name="address" placeholder="Address"/>
                                     </h2>
                                     <label for="phone" string="Phone"/>
                                     <h2>
                                         <i class='fa fa-phone'/>
-                                        <field name="phone" widget="phone"/>
+                                        <field name="phone" widget="phone" placeholder="Phone"/>
                                     </h2>
                                 </group>
                             </page>
@@ -81,12 +83,12 @@
                                     <label for="allergies" string="Allergies"/>
                                     <h2>
                                         <i class='fa fa-warning'/>
-                                        <field name="allergies" widget="html"/>
+                                        <field name="allergies" widget="html" placeholder="Allergies"/>
                                     </h2>
                                     <label for="preexisting_conditions" string="Preexisting Conditions"/>
                                     <h2>
                                         <i class='fa fa-heartbeat'/>
-                                        <field name="preexisting_conditions" widget="html"/>
+                                        <field name="preexisting_conditions" widget="html" placeholder="Preexisting Conditions"/>
                                     </h2>
                                 </group>
                             </page>
@@ -95,7 +97,7 @@
                                     <label for="doctor_id" string="doctor"/>
                                     <h2>
                                         <i class='fa fa-user-md'/>
-                                        <field name="doctor_id"/>
+                                        <field name="doctor_id" widget="list"/>
                                     </h2>
                                 </group>
                             </page>
@@ -104,7 +106,7 @@
                                     <label for="bed_id" string="Bed"/>
                                     <h2>
                                         <i class='fa fa-bed'/>
-                                        <field name="bed_id"/>
+                                        <field name="bed_id" widget="list"/>
                                     </h2>
                                 </group>
                             </page>
@@ -129,7 +131,7 @@
                                         <div class="kanban_title">
                                             <strong class="o_kanban_record_title">
                                                 <i class="fa fa-user"/>
-                                                <field name="name"/>
+                                                <field name="name"/>(<field name="age"/>)
                                             </strong>
                                         </div>
                                         <div class="kanban_left">

@@ -8,6 +8,7 @@ class Patient(models.Model):
 
     name = fields.Char(string='Name', required=True)
     last_name = fields.Char(string='Last Name', required=True)
+    full_name = fields.Char(string='Full Name', compute='_get_full_name', store=True)
     date_of_birth = fields.Date(string='Date of Birth')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], string='Gender')
     age = fields.Integer(string='Age', compute='_get_age', store=True)
@@ -33,12 +34,20 @@ class Patient(models.Model):
         if 'bed_id' in vals:
             self.bed_id.state = 'occupied' if vals['bed_id'] else 'available'
             self.state = 'admitted' if vals['bed_id'] else 'not_admitted'
-    
+
+        if 'doctor_id' in vals:
+            if self.doctor_id:
+                self.state = 'admitted' if vals['doctor_id'] else 'not_admitted'
+
         return res
 
     def discharge(self):
-        self.bed_id.state = 'available'
-        self.bed_id = False
+        if self.bed_id:
+            self.bed_id.state = 'available'
+            self.bed_id = False
+        if self.doctor_id:
+            self.doctor_id.treated_patients_ids += self
+            self.doctor_id = False
         self.state = 'not_admitted'
 
     # Creamos una funcion que nos devuelva el nombre completo del paciente
@@ -56,3 +65,4 @@ class Patient(models.Model):
                 dob = fields.Datetime.from_string(patient.date_of_birth)
                 age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
                 patient.age = age
+
