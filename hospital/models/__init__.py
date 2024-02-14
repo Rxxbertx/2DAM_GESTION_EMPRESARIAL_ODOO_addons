@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import Patient, ExtendedPatient, Bed, Floor, AdmissionHistory, Doctor
+from . import Person, Patient, Bed, Floor, AdmissionHistory, Doctor

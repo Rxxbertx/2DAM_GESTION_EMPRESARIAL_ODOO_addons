@@ -12,6 +12,11 @@ def generate_specialization():
     return random.choice(specializations)
 
 
+def generate_gender():
+    gender = ['male', 'female', 'other']
+    return random.choice(gender)
+
+
 def generate_date_of_birth():
     end_date = datetime.now() - timedelta(days=365 * 18)  # Hace que los pacientes tengan al menos 18 años
     start_date = end_date - timedelta(days=365 * 90)  # Hace que los pacientes tengan hasta 90 años
@@ -29,13 +34,14 @@ for _ in range(20):  # Generar 20 médicos
         'phone': fake.phone_number(),  # Teléfono del médico
         'email': fake.email(),  # Correo electrónico del médico
         'date_of_birth': generate_date_of_birth(),  # Fecha de nacimiento del médico
+        'gender': generate_gender(),
     }
     doctors_data.append(doctor)
 
 # Escribir los datos en un archivo CSV
 csv_filename = 'data/hospital.doctor.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
-    fieldnames = ['name', 'last_name', 'specialization', 'work_schedule', 'phone', 'email', 'date_of_birth']
+    fieldnames = ['name', 'last_name', 'specialization', 'work_schedule', 'phone', 'email', 'date_of_birth', 'gender']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()

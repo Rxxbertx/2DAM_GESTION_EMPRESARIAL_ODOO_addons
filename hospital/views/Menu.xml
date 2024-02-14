@@ -51,4 +51,3 @@
     
      <menuitem id="menu_admission_history" parent="hospital_menu_root" name="Admission History" sequence="50" action="action_admission_history"/>
 </odoo>
-

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -42,6 +44,21 @@ class Patient(models.Model):
             if self.doctor_id:
                 self.state = 'admitted' if vals['doctor_id'] else 'not_admitted'
 
+        if 'state' in vals:
+            if vals['state'] == 'admitted':
+                self.env['hospital.admission.history'].create({
+                    'patient_id': self.id,
+                    'admission_date': datetime.now(),
+                    # ... other necessary fields ...
+                })
+            elif vals['state'] == 'not_admitted':
+                admission_history = self.env['hospital.admission.history'].search([
+                    ('patient_id', '=', self.id),
+                ], order='admission_date desc', limit=1)
+                if admission_history:
+                    admission_history.write({
+                        'discharge_date': datetime.now(),
+                    })
         return res
 
     def discharge(self):
@@ -52,3 +69,5 @@ class Patient(models.Model):
             self.doctor_id.treated_patients_ids += self
             self.doctor_id = False
         self.state = 'not_admitted'
+
+

@@ -31,7 +31,7 @@ hospital
         'views/doctor.xml',
         'views/Menu.xml',
         'views/AdmissionHistory.xml',
-        'data/hospital.extended.patient.csv',
+        'data/hospital.patient.csv',
         'data/hospital.floor.csv',
         'data/hospital.bed.csv',
         'data/hospital.doctor.csv',

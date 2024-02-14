@@ -42,7 +42,7 @@ for _ in range(20):
     patients_data.append(patient)
 
 # Escribir los datos en un archivo CSV
-csv_filename = 'data/hospital.extended.patient.csv'
+csv_filename = 'data/hospital.patient.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
     fieldnames = ['name', 'last_name', 'date_of_birth', 'gender', 'address', 'phone', 'allergies',
                   'preexisting_conditions', 'social_security_number', 'bed_id', 'doctor_id']
@@ -53,4 +53,4 @@ with open(csv_filename, 'w', newline='') as csvfile:
         writer.writerow(patient)
 
 print(f"Se han generado los datos de 20 pacientes extendidos en el archivo '{csv_filename}'.")
-# Output: Se han generado los datos de 20 pacientes extendidos en el archivo 'hospital.extended.patient.csv'.
+# Output: Se han generado los datos de 20 pacientes extendidos en el archivo 'hospital.patient.csv'.

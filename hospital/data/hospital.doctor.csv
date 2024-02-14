@@ -1,21 +1,21 @@
-name,last_name,specialization,work_schedule,phone,email,date_of_birth
-Eric,Brooks,Gastroenterology,4.2,001-346-705-6157,eric94@example.net,1938-07-20
-Teresa,Kramer,Cardiology,9.48,6728103010,dean66@example.net,1978-08-05
-Nichole,Dawson,Neurology,6.63,(569)705-5041x5685,terri70@example.org,1926-09-14
-Jodi,Richardson,Cardiology,8.06,(593)248-8221,usmith@example.net,1940-09-06
-Jay,Rodriguez,Gastroenterology,8.13,413-784-5080x9499,mooremisty@example.org,1976-11-05
-Kari,Walsh,Cardiology,4.53,875.525.0282x1146,bradmunoz@example.org,1920-08-03
-Stephanie,Hamilton,Cardiology,4.25,001-754-566-1131x1762,hfletcher@example.com,1992-07-08
-Randall,Pollard,Cardiology,9.59,+1-630-573-3885x238,daniel98@example.net,1940-06-15
-Cassandra,Baker,Emergency Medicine,5.8,+1-497-655-0681x5562,juanalvarez@example.com,1945-06-19
-Christopher,Rose,Gastroenterology,7.09,648.209.2647x3321,kenneth68@example.net,1920-03-27
-Nathan,Holt,Emergency Medicine,8.06,001-201-274-4014x333,itran@example.net,1976-01-25
-Seth,Patterson,Emergency Medicine,9.07,+1-258-521-7633x9219,david10@example.net,1935-03-27
-John,Martin,Emergency Medicine,8.22,+1-246-694-2571x789,linda36@example.org,1921-11-05
-Lori,Dillon,Cardiology,4.9,415.816.4007,huntgregory@example.com,1960-11-19
-Steven,Wilkinson,Cardiology,6.12,527-505-0586x9991,johnny06@example.com,1999-02-07
-Deborah,Bush,Cardiology,4.03,001-816-394-9305,linda64@example.net,1961-11-18
-Christine,Bartlett,Cardiology,9.69,424-991-9905x5955,fischeremily@example.com,1951-02-06
-Robin,Sweeney,Emergency Medicine,9.24,(970)735-2891x15910,gmatthews@example.net,2005-07-29
-Denise,Maxwell,Neurology,6.93,8179605107,zwilkins@example.net,1957-07-20
-Katherine,Chen,Dermatology,7.29,001-865-598-1115,mary29@example.net,1984-03-26
+name,last_name,specialization,work_schedule,phone,email,date_of_birth,gender
+William,Allen,Gastroenterology,4.58,288-301-7392,cmartin@example.org,1984-12-26,female
+Sandy,Williams,Cardiology,9.09,382.714.6134,johnsonchristina@example.org,1927-08-09,female
+Scott,Sanchez,Neurology,7.28,001-417-587-8765x04934,brownhannah@example.net,1921-03-14,other
+Julia,Wright,Emergency Medicine,9.26,884-941-3068x805,michaelhutchinson@example.com,1925-08-22,male
+Erica,Griffin,Neurology,9.99,(686)503-1454x95120,brandon03@example.net,1999-06-04,male
+Michael,Brock,Dermatology,4.16,001-300-729-6806x0645,daniel45@example.net,1941-04-29,male
+Michael,Rhodes,Gastroenterology,8.66,798.396.2617,nielsenkayla@example.net,1985-09-13,other
+Brian,Long,Gastroenterology,4.7,(399)505-8933,ballmary@example.org,1963-12-28,female
+Dillon,Schwartz,Dermatology,8.06,001-796-364-1157x889,smithvanessa@example.org,1936-11-24,female
+Ann,Johnson,Emergency Medicine,9.01,(714)376-9314x642,johnsmith@example.org,1946-05-27,female
+Michael,Pace,Neurology,6.5,241.481.9457x65997,burchangela@example.org,1996-11-28,female
+Amy,Harper,Cardiology,4.41,394.899.3880,kferguson@example.net,1992-11-23,other
+George,Holmes,Dermatology,6.72,(331)280-5811x5302,alyssadelgado@example.com,1968-07-10,male
+Veronica,Garcia,Dermatology,7.02,+1-861-427-0326x925,ashley91@example.net,1996-04-30,other
+Rodney,Wilson,Neurology,7.05,462.424.6747,morganalice@example.net,1931-12-16,female
+David,Long,Gastroenterology,8.91,476-853-0421,fsanders@example.com,2005-04-17,male
+Maria,Melton,Gastroenterology,6.66,647-272-6222x8334,daniel65@example.com,1996-05-27,female
+Anthony,Pierce,Gastroenterology,6.53,825.289.8728,phutchinson@example.org,1994-06-21,male
+Jeffery,Bennett,Dermatology,5.41,(968)326-2856,richardswilliam@example.org,1962-08-24,other
+Jane,Terry,Dermatology,4.05,(900)719-2913,darren66@example.org,1985-01-10,female
