@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+
+        <record model="ir.ui.view" id="biblioteca_roberto_autor_tree">
+            <field name="name">biblioteca_roberto autor tree</field>
+            <field name="model">biblioteca_roberto.autor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="cantidad_libros"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="biblioteca_roberto_autor_form">
+            <field name="name">biblioteca_roberto autor form</field>
+            <field name="model">biblioteca_roberto.autor</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_sheet">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h2>
+
+                                <i class='fa fa-user'/>
+                                NOMBRE:
+                                <field name="nombre" widget="char" placeholder="Nombre Autor"/>
+                            </h2>
+                        </div>
+
+                        <div>
+                                    BIOGRAFIA:
+                                    <field name="biografia"/>
+
+                        </div>
+
+                        <notebook>
+                            <page string="LIBROS">
+                                LIBROS AUTOR:
+                                <field name="libro_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="biblioteca_roberto_libro_tree">
+            <field name="name">biblioteca_roberto libro tree</field>
+            <field name="model">biblioteca_roberto.libro</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="titulo"/>
+                    <field name="estado"/>
+                    <field name="autor_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="biblioteca_roberto_libro_form">
+            <field name="name">biblioteca_roberto libro form</field>
+            <field name="model">biblioteca_roberto.libro</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_sheet">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h2>
+
+                                <i class='fa fa-book'/>
+                                TITULO:
+                                <field name="titulo" widget="char" placeholder="Titulo Libro"/>
+                            </h2>
+                        </div>
+
+
+                        <div>
+                            ISBN:
+                            <field name="isbn" placeholder="isbn"/>
+
+                        </div>
+
+                        <div>
+                            FECHA PUBLICACION:
+                            <field name="fecha_publicacion" widget="date" placeholder="fecha"/>
+
+                        </div>
+
+                        <div>
+                            ESTADO:
+                            <field name="estado" widget="selection" placeholder="estado"/>
+
+                        </div>
+
+                        <notebook>
+                            <page string="AUTOR">
+                                <field name="autor_id"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

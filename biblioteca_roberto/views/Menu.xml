@@ -1,0 +1,28 @@
+<odoo>
+
+    <data>
+
+        <record model="ir.actions.act_window" id="autor_action_window">
+            <field name="name">AUTORES</field>
+            <field name="res_model">biblioteca_roberto.autor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="libro_action_window">
+            <field name="name">LIBROS</field>
+            <field name="res_model">biblioteca_roberto.libro</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <menuitem name="BIBLIOTECA" id="biblioteca_roberto.menu_root"/>
+
+        <menuitem name="AUTOR" id="biblioteca_roberto.menu_autor" parent="biblioteca_roberto.menu_root" action="autor_action_window"/>
+        <menuitem name="LIBRO" id="biblioteca_roberto.menu_libro" parent="biblioteca_roberto.menu_root" action="libro_action_window"/>
+
+
+    </data>
+
+
+</odoo>
