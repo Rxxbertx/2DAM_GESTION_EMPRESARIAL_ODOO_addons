@@ -29,7 +29,7 @@
 
     <record id="action_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
-        <field name="res_model">hospital.extended.patient</field>
+        <field name="res_model">hospital.patient</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
 

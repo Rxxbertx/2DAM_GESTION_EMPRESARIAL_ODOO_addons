@@ -30,7 +30,7 @@
         'views/species.xml',
         'views/pokemon.xml',
         'views/trainer.xml',
-        'views/menu.xml'
+        'views/Menu.xml'
         # 'security/ir.model.access.csv',
         # 'views/views.xml',
         # 'views/templates.xml',

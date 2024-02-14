@@ -25,11 +25,11 @@ hospital
 
     # always loaded
     'data': [
-        'views/patient.xml',
-        'views/floor.xml',
-        'views/bed.xml',
+        'views/Patient.xml',
+        'views/Floor.xml',
+        'views/Bed.xml',
         'views/doctor.xml',
-        'views/menu.xml',
+        'views/Menu.xml',
         'views/AdmissionHistory.xml',
         'data/hospital.extended.patient.csv',
         'data/hospital.floor.csv',

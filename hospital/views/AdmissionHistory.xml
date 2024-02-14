@@ -20,7 +20,7 @@
     <field name="name">admission.history.form</field>
     <field name="model">hospital.admission.history</field>
     <field name="arch" type="xml">
-        <form string="Admission History" style="width: 100%;">
+        <form string="Admission History" class="oe_form_sheet">
             <sheet>
                 <div class="oe_title">
                     <h1>
@@ -83,12 +83,6 @@
             </kanban>
         </field>
     </record>
-
-
-
-
-
-    
 
 </data>
 </odoo>

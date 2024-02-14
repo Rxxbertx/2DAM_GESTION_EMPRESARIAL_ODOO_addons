@@ -6,14 +6,9 @@ class Patient(models.Model):
     _name = 'hospital.patient'
     _description = 'Patient Information'
 
-    name = fields.Char(string='Name', required=True)
-    last_name = fields.Char(string='Last Name', required=True)
-    full_name = fields.Char(string='Full Name', compute='_get_full_name', store=True)
-    date_of_birth = fields.Date(string='Date of Birth')
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], string='Gender')
-    age = fields.Integer(string='Age', compute='_get_age', store=True)
+    _inherit = 'hospital.person'
+
     address = fields.Text(string='Address')
-    phone = fields.Char(string='Phone')
     allergies = fields.Text(string='Allergies')
     preexisting_conditions = fields.Text(string='Preexisting Conditions')
     state = fields.Selection([
@@ -22,6 +17,14 @@ class Patient(models.Model):
     ], string='State', default='not_admitted')
     bed_id = fields.Many2one('hospital.bed', string='Bed', domain="[('state', '=', 'available')]")
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
+    social_security_number = fields.Char(string='Social Security Number')
+
+    # Creamos una condicion para que el numero de seguro social sea unico
+    _sql_constraints = [
+        ('social_security_number_unique',
+         'UNIQUE(social_security_number)',
+         'The Social Security Number must be unique.')
+    ]
 
     @api.constrains('bed_id')
     def check_bed_availability(self):
@@ -49,20 +52,3 @@ class Patient(models.Model):
             self.doctor_id.treated_patients_ids += self
             self.doctor_id = False
         self.state = 'not_admitted'
-
-
-    @api.depends('name', 'last_name')
-    def _get_full_name(self):
-        for patient in self:
-            patient.full_name = patient.name + ' ' + patient.last_name
-
-
-    @api.depends('date_of_birth')
-    def _get_age(self):
-        for patient in self:
-            if patient.date_of_birth:
-                today = fields.Date.today()
-                dob = fields.Datetime.from_string(patient.date_of_birth)
-                age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
-                patient.age = age
-

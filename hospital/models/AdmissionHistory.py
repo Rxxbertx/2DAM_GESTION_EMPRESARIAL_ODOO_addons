@@ -6,7 +6,7 @@ class AdmissionHistory(models.Model):
     _name = 'hospital.admission.history'
     _description = 'Patient Admission History'
 
-    patient_id = fields.Many2one('hospital.extended.patient', string='Patient')
+    patient_id = fields.Many2one('hospital.patient', string='Patient')
     floor_id = fields.Many2one('hospital.floor', string='Floor')
     bed_id = fields.Many2one('hospital.bed', string='Bed')
     admission_date = fields.Datetime(string='Admission Date and Time')
@@ -19,7 +19,6 @@ class AdmissionHistory(models.Model):
     patient_phone = fields.Char(string='Patient Phone', related='patient_id.phone', readonly=True)
     patient_admitted = fields.Selection(string='Admitted', related='patient_id.state', readonly=True)
 
-
     @api.constrains('patient_id')
     def _check_patient_bed(self):
         for history in self:
@@ -28,13 +27,11 @@ class AdmissionHistory(models.Model):
             if admission_history:
                 raise ValidationError("Patient is already admitted in another bed")
 
-
     @api.constrains('admission_date', 'discharge_date')
     def _check_dates(self):
         for history in self:
             if history.discharge_date and history.admission_date > history.discharge_date:
                 raise ValidationError("Discharge date should be greater than admission date")
-
 
     @api.constrains('bed_id')
     def _check_bed_limit(self):
@@ -46,7 +43,6 @@ class AdmissionHistory(models.Model):
                 bed.state = 'occupied'
             if bed.state == 'occupied':
                 bed.state = 'available'
-
 
     @api.constrains('floor_id', 'bed_id', 'admission_date')
     def _check_floor_bed_admission_date(self):
