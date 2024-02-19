@@ -49,11 +49,12 @@ class Patient(models.Model):
                 self.env['hospital.admission.history'].create({
                     'patient_id': self.id,
                     'admission_date': datetime.now(),
-                    # ... other necessary fields ...
+                    'bed_id': self.bed_id.id,
+                    'doctor_id': self.doctor_id.id,
                 })
             elif vals['state'] == 'not_admitted':
                 admission_history = self.env['hospital.admission.history'].search([
-                    ('patient_id', '=', self.id),
+                    ('patient_id', '=', self),
                 ], order='admission_date desc', limit=1)
                 if admission_history:
                     admission_history.write({

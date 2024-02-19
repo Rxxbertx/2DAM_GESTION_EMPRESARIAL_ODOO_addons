@@ -36,6 +36,8 @@
                     <field name="patient_last_name"/>
                       <!-- Campo de teléfono del paciente -->
                        <field name="patient_phone"/>
+                       
+                    
                 </group>
                 <group>
                     <!-- Campo de admisión del paciente -->
@@ -65,8 +67,7 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
                             <div class="oe_kanban_image">
-                                <img t-att-src="'/web/image/hospital.admission.history/' + record.id + '/image'" class="oe_kanban_avatar oe_kanban_image" />
-                            </div>
+                                <i class="fa fa-user" style="font-size: 20px;"/>                            </div>
                             <div class="oe_kanban_details">
                                 <strong class="oe_kanban_title">
                                     <field name="patient_id"/>
