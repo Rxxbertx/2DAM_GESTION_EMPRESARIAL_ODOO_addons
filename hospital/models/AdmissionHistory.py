@@ -7,18 +7,15 @@ class AdmissionHistory(models.Model):
     _description = 'Patient Admission History'
 
     patient_id = fields.Many2one('hospital.patient', string='Patient')
-    doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
-    bed_id = fields.Many2one('hospital.bed', string='Bed')
-    floor_id = fields.Char(related='bed_id.floor_id.name', string='Floor')
+    doctor_id = fields.Many2one(related='patient_id.doctor_id', string='Doctor')
+    bed_id = fields.Many2one(related='patient_id.bed_id', string='Bed')
+    previous_bed = fields.Many2one('hospital.bed', string='Previous Bed')
+    previous_doctor = fields.Many2one('hospital.doctor', string='Previous Doctor')
+    floor_id = fields.Many2one(related='bed_id.floor_id', string='Floor')
     admission_date = fields.Datetime(string='Admission Date and Time')
     discharge_date = fields.Datetime(string='Discharge Date and Time')
     diagnosis = fields.Text(string='Diagnosis')
     treatment = fields.Text(string='Treatment')
-
-    patient_name = fields.Char(string='Patient Name', related='patient_id.name', readonly=True)
-    patient_last_name = fields.Char(string='Patient Last Name', related='patient_id.last_name', readonly=True)
-    patient_phone = fields.Char(string='Patient Phone', related='patient_id.phone', readonly=True)
-    patient_admitted = fields.Selection(string='Admitted', related='patient_id.state', readonly=True)
 
     @api.constrains('admission_date', 'discharge_date')
     def _check_dates(self):

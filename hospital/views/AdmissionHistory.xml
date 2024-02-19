@@ -1,89 +1,111 @@
 <odoo>
-<data>
-    <record id="view_admission_history_tree" model="ir.ui.view">
-        <field name="name">admission.history.tree</field>
-        <field name="model">hospital.admission.history</field>
-        <field name="arch" type="xml">
-            <tree string="Admission History">
-                <field name="patient_id" />
-                 <field name="patient_last_name"/>
-                  <field name="patient_admitted"/>
-                <field name="floor_id"/>
-                <field name="bed_id"/>
-                <field name="admission_date"/>
-                <field name="discharge_date"/>
-            </tree>
-        </field>
-    </record>
-
-  <record id="view_admission_history_form" model="ir.ui.view">
-    <field name="name">admission.history.form</field>
-    <field name="model">hospital.admission.history</field>
-    <field name="arch" type="xml">
-        <form string="Admission History" class="oe_form_sheet">
-            <sheet>
-                <div class="oe_title">
-                    <h1>
-                        <!-- Icono de usuario junto al campo del paciente -->
-                        <i class="fa fa-user" style="font-size: 20px;"/>
-                        <field name="patient_id"/>
-                    </h1>
-                </div>
-                <group>
-                    <!-- Campo de nombre del paciente -->
-                    <field name="patient_name"/>
-                    <!-- Campo de apellido del paciente -->
-                    <field name="patient_last_name"/>
-                      <!-- Campo de teléfono del paciente -->
-                       <field name="patient_phone"/>
-                       
-                    
-                </group>
-                <group>
-                    <!-- Campo de admisión del paciente -->
-                    <field name="patient_admitted"/>
-                </group>
-                <group>
-                    <!-- Campos de piso, cama, fecha de admisión y fecha de salida -->
+    <data>
+        <record id="view_admission_history_tree" model="ir.ui.view">
+            <field name="name">admission.history.tree</field>
+            <field name="model">hospital.admission.history</field>
+            <field name="arch" type="xml">
+                <tree string="Admission History">
+                    <field name="patient_id"/>
                     <field name="floor_id"/>
                     <field name="bed_id"/>
+                    <field name="previous_bed"/>
+                    <field name="doctor_id"/>
+                    <field name="previous_doctor"/>
                     <field name="admission_date"/>
                     <field name="discharge_date"/>
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_admission_history_form" model="ir.ui.view">
+            <field name="name">admission.history.form</field>
+            <field name="model">hospital.admission.history</field>
+            <field name="arch" type="xml">
+                <form string="Admission History" class="oe_form_sheet">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <!-- Icono de usuario junto al campo del paciente -->
+                                <i class="fa fa-user" style="font-size: 20px;"/>
+                                Patient
+                                <field name="patient_id"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <!-- Campos de piso, cama, fecha de admisión y fecha de salida -->
+
+                            <page string="Floor">
+                                <field name="floor_id"/>
+                            </page>
+                            <page string="Bed">
+                                <i class="fa fa-bed" style="font-size: 20px;"/>
+                                <group>
+                                    Actual Bed
+                                    <field name="bed_id"/>
+                                </group>
+                                <group>
+                                    Last Bed
+                                    <field name="previous_bed"/>
+                                </group>
+                            </page>
+
+                            <page string="Doctor">
+                                <i class="fa fa-user" style="font-size: 20px;"/>
+                                <group>
+                                    Actual Doctor
+                                    <field name="doctor_id"/>
+                                </group>
+                                <group>
+                                    Last Doctor
+                                    <field name="previous_doctor"/>
+                                </group>
+                            </page>
+
+                            <page string="Dates">
+
+                                <i class="fa fa-calendar" style="font-size: 20px;"/>
+
+                                <group>
+                                    Admission Date
+                                    <field name="admission_date"/>
+                                </group>
+
+                                <group>
+                                    Discharge Date
+                                    <field name="discharge_date"/>
+                                </group>
 
 
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-  
-    <record id="view_admission_history_kanban" model="ir.ui.view">
-        <field name="name">admission.history.kanban</field>
-        <field name="model">hospital.admission.history</field>
-        <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile">
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
-                            <div class="oe_kanban_image">
-                                <i class="fa fa-user" style="font-size: 20px;"/>                            </div>
-                            <div class="oe_kanban_details">
-                                <strong class="oe_kanban_title">
-                                    <field name="patient_id"/>
-                                </strong>
-                                <div class="oe_kanban_content">
-                                    <field name="patient_name"/>
-                                    <field name="patient_last_name"/>
-                                    <field name="patient_admitted"/>
+
+        <record id="view_admission_history_kanban" model="ir.ui.view">
+            <field name="name">admission.history.kanban</field>
+            <field name="model">hospital.admission.history</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_image">
+                                    <i class="fa fa-user" style="font-size: 20px;"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="oe_kanban_title">
+                                        <field name="patient_id"/>
+                                    </strong>
                                 </div>
                             </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
-</data>
+    </data>
 </odoo>

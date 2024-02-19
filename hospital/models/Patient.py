@@ -20,6 +20,8 @@ class Patient(models.Model):
     bed_id = fields.Many2one('hospital.bed', string='Bed', domain="[('state', '=', 'available')]")
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
     social_security_number = fields.Char(string='Social Security Number')
+    previous_bed = fields.Many2one('hospital.bed', string='Previous Bed')
+    previous_doctor = fields.Many2one('hospital.doctor', string='Previous Doctor')
 
     # Creamos una condicion para que el numero de seguro social sea unico
     _sql_constraints = [
@@ -35,10 +37,22 @@ class Patient(models.Model):
                 raise ValidationError("The bed is already occupied.")
 
     def write(self, vals):
+
+        # Cambiar el estado de la cama anterior a 'available'
+
         res = super(Patient, self).write(vals)
+
         if 'bed_id' in vals:
             self.bed_id.state = 'occupied' if vals['bed_id'] else 'available'
-            self.state = 'admitted' if vals['bed_id'] else 'not_admitted'
+
+        if self.bed_id and self.previous_bed != self.bed_id:
+            self.previous_bed = self.bed_id
+
+        if self.doctor_id and self.previous_doctor != self.doctor_id:
+            self.previous_doctor = self.doctor_id
+
+        if self.previous_bed and self.previous_bed != self.bed_id:
+            self.previous_bed.state = 'available'
 
         if 'doctor_id' in vals:
             if self.doctor_id:
@@ -49,26 +63,27 @@ class Patient(models.Model):
                 self.env['hospital.admission.history'].create({
                     'patient_id': self.id,
                     'admission_date': datetime.now(),
-                    'bed_id': self.bed_id.id,
-                    'doctor_id': self.doctor_id.id,
                 })
             elif vals['state'] == 'not_admitted':
                 admission_history = self.env['hospital.admission.history'].search([
-                    ('patient_id', '=', self),
+                    ('patient_id.id', '=', self.id),
                 ], order='admission_date desc', limit=1)
                 if admission_history:
                     admission_history.write({
                         'discharge_date': datetime.now(),
+                        'previous_bed': self.previous_bed.id,
+                        'previous_doctor': self.previous_doctor.id,
+
                     })
         return res
 
     def discharge(self):
         if self.bed_id:
             self.bed_id.state = 'available'
+            self.previous_bed = self.bed_id  # guarda la cama actual en previous_bed antes de dar de alta al paciente
             self.bed_id = False
         if self.doctor_id:
+            self.previous_doctor = self.doctor_id
             self.doctor_id.treated_patients_ids += self
             self.doctor_id = False
         self.state = 'not_admitted'
-
-
