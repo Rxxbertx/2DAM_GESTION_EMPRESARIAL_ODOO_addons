@@ -10,4 +10,4 @@ class Bed(models.Model):
     state = fields.Selection([('occupied', 'Occupied'), ('available', 'Available')], string='State')
     type = fields.Selection([('normal', 'Normal'), ('intensive_care', 'Intensive Care'), ('pediatric', 'Pediatric')],
                             string='Bed Type')
-    patient_id = fields.One2many('hospital.patient', 'bed_id', string='Patient')
+    patient_id = fields.One2many('hospital.admission', 'bed_id', string='Patient')

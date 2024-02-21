@@ -11,8 +11,8 @@ class Doctor(models.Model):
     specialization = fields.Char(string='Specialization')
     work_schedule = fields.Float(string='Hours of Work')
     email = fields.Char(string='Email', required=True)
-    treated_patients_ids = fields.Many2many('hospital.patient', string='Treated Patients')
-    patients = fields.One2many('hospital.patient', 'doctor_id', string='Patients')
+    treated_patients_ids = fields.Many2many('hospital.admission', string='Treated Patients')
+    patients = fields.One2many('hospital.admission', 'doctor_id', string='Patients')
 
     @api.constrains('patients')
     def get_three_patients(self):

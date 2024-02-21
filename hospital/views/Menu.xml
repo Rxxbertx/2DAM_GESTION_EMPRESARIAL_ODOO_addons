@@ -21,9 +21,9 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <record id="action_admission_history" model="ir.actions.act_window">
-        <field name="name">Admission History</field>
-        <field name="res_model">hospital.admission.history</field>
+    <record id="action_admission" model="ir.actions.act_window">
+        <field name="name">Admission</field>
+        <field name="res_model">hospital.admission</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
@@ -49,5 +49,5 @@
     
      <menuitem id="menu_doctor" name="Doctors" parent="hospital_menu_root" sequence="40" action="action_doctor"/>
     
-     <menuitem id="menu_admission_history" parent="hospital_menu_root" name="Admission History" sequence="50" action="action_admission_history"/>
+     <menuitem id="menu_admission" parent="hospital_menu_root" name="Admissions" sequence="50" action="action_admission"/>
 </odoo>

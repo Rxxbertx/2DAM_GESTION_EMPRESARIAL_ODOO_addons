@@ -1,0 +1,1 @@
+## historial del paciente con tal hora, tal hora tal dia... etc.  del objeto admission

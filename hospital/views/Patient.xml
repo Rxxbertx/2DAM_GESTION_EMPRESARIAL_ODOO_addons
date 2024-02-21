@@ -8,7 +8,6 @@
                 <tree string="Patient">
                     <field name="name"/>
                     <field name="last_name"/>
-                    
                     <field name="social_security_number"/>
                     <field name="state" widget="badge" decoration-success="state == 'admitted'"/>
                     <field name="date_of_birth" widget="date"/>
@@ -16,8 +15,6 @@
                     <field name="gender" widget="badge" decoration-danger="gender == 'female'"
                            decoration-success="gender == 'male'"/>
                     <field name="phone" widget="phone"/>
-                    <field name="doctor_id"/>
-                    <field name="bed_id" widget="badge"/>
                     
                 </tree>
             </field>
@@ -92,24 +89,6 @@
                                     </h2>
                                 </group>
                             </page>
-                            <page string="Doctor">
-                                <group>
-                                    <label for="doctor_id" string="doctor"/>
-                                    <h2>
-                                        <i class='fa fa-user-md'/>
-                                        <field name="doctor_id" widget="list"/>
-                                    </h2>
-                                </group>
-                            </page>
-                            <page string="Bed">
-                                <group>
-                                    <label for="bed_id" string="Bed"/>
-                                    <h2>
-                                        <i class='fa fa-bed'/>
-                                        <field name="bed_id" widget="list"/>
-                                    </h2>
-                                </group>
-                            </page>
                         </notebook>
                         
                     </sheet>
@@ -143,11 +122,7 @@
                                                 <i class="fa fa-phone"/>
                                                 <field name="phone"/>
                                             </div>
-                                            
-                                            <div class="o_kanban_record_subtitle">
-                                                <i class="fa fa-user"/>
-                                                <field name="doctor_id"/>
-                                            </div>
+
                                             
                                         </div>
                                         <div class="kanban_right">
@@ -160,10 +135,6 @@
                                                  t-attf-class="{{ record.gender.raw_value == 'male' ? 'male' : record.gender.raw_value == 'female' ? 'female' : 'other' }}">
                                                 <i class="fa fa-venus-mars"/>
                                                 <field name="gender"/>
-                                            </div>
-                                            <div class="o_kanban_record_subtitle">
-                                                <i class="fa fa-bed"/>
-                                                <field name="bed_id"/>
                                             </div>
                                             
                                             
