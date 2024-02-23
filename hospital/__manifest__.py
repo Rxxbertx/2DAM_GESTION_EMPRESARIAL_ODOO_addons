@@ -28,14 +28,18 @@ hospital
         'views/Patient.xml',
         'views/Floor.xml',
         'views/Bed.xml',
-        'views/doctor.xml',
+        'views/Doctor.xml',
+        'views/Diagnosis.xml',
+        'views/Treatment.xml',
         'views/Menu.xml',
-        #'views/Admission.xml',
+        'views/Admission.xml',
         'data/hospital.patient.csv',
         'data/hospital.floor.csv',
         'data/hospital.bed.csv',
         'data/hospital.doctor.csv',
-        
+        'data/hospital.diagnosis.csv',
+        'data/hospital.treatment.csv',
+
     ],
     'assets': {
         'web.assets_backend': [

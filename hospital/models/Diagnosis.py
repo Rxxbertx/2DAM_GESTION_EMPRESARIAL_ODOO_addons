@@ -1,10 +1,7 @@
-
 from datetime import datetime
 
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo import models, fields
 
-##one to many de consultas, sola 1 activa.
 
 class Diagnosis(models.Model):
     _name = 'hospital.diagnosis'

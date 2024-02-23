@@ -36,8 +36,7 @@ for _ in range(20):
         'allergies': allergies,
         'preexisting_conditions': preexisting_conditions,
         'social_security_number': social_security_number,
-        'bed_id': None,
-        'doctor_id': None,
+
     }
     patients_data.append(patient)
 
@@ -45,7 +44,7 @@ for _ in range(20):
 csv_filename = 'data/hospital.patient.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
     fieldnames = ['name', 'last_name', 'date_of_birth', 'gender', 'address', 'phone', 'allergies',
-                  'preexisting_conditions', 'social_security_number', 'bed_id', 'doctor_id']
+                  'preexisting_conditions', 'social_security_number']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()

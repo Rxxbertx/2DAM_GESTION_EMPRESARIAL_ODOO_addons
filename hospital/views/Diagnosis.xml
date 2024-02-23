@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <record id="view_diagnosis_form" model="ir.ui.view">
+            <field name="name">hospital.diagnosis.form</field>
+            <field name="model">hospital.diagnosis</field>
+            <field name="arch" type="xml">
+                <form string="Diagnosis" class="oe_form_sheet">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" class="oe_edit_only"/>
+                                <field name="name" nolabel="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_date">
+                            <label for="date" class="oe_edit_only"/>
+                            <h2>
+                                <i class="fa fa-calendar"/>
+                                <field name="date" widget="date"/>
+                            </h2>
+                        </div>
+                        <div
+                        >
+                            <label for="description" class="oe_edit_only"/>
+                            <i class="fa fa-info-circle"/>
+                            <br/>
+                            <field name="description" class="oe_edit_only" widget="html"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_diagnosis_kanban" model="ir.ui.view">
+            <field name="name">hospital.diagnosis.kanban</field>
+            <field name="model">hospital.diagnosis</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click oe_kanban_color_yellow">
+                                <div class="oe_kanban_details">
+                                    <div class="oe_kanban_content div_centered">
+                                        <h2>
+                                            <i class="fa fa-pencil-square-o"/> <field name="name"/>
+                                        </h2>
+                                    </div>
+                                    <div class="oe_kanban_content">
+                                        <i class="fa fa-calendar"/>
+                                        <field name="date" widget="date"/>
+                                    </div>
+                                    <div class="oe_kanban_content">
+                                        <i class="fa fa-info-circle"/>
+                                        <field name="description"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_diagnosis_tree" model="ir.ui.view">
+            <field name="name">hospital.diagnosis.tree</field>
+            <field name="model">hospital.diagnosis</field>
+            <field name="arch" type="xml">
+                <tree string="Diagnosis">
+                    <field name="name" widget="badge"/>
+                    <field name="date" widget="date"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

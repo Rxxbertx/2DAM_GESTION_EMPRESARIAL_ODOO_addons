@@ -1,16 +1,10 @@
-## si, un paciente, un doctor, una cama(opcional), un diagnosis(o varios), un tratamiento, prioridad colores,
 
-##la archivo si ya se ha realizado
-
-##cada admision tendra un reporte
 
 from datetime import datetime
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-
-##one to many de consultas, sola 1 activa.
 
 class Admission(models.Model):
     _name = 'hospital.admission'
@@ -27,6 +21,34 @@ class Admission(models.Model):
                              default='admitted')
     priority = fields.Selection([('low', 'Low'), ('normal', 'Normal'), ('high', 'High')], string='Priority',
                                 default='normal')
+
+    report_id = fields.One2many('hospital.report', 'admission_id', string='Report')
+
+    @api.model
+    def create(self, vals):
+        record = super().create(vals)
+        report = self.env['hospital.report'].create({
+            'name': 'Report for ' + record.patient_id.name,
+            'admission_id': record.id,
+        })
+        record.report_id = [(6, 0, [report.id])]
+        return record
+
+    def write(self, vals):
+        res = super().write(vals)
+        if 'state' in vals and vals['state'] == 'discharged':
+            for record in self:
+                if record.report_id:
+                    record.report_id.write({
+                        'state': 'completed',
+                    })
+        return res
+
+    def discharge(self):
+        self.write({
+            'state': 'discharged',
+            'discharge_date': fields.Date.today(),
+        })
 
     @api.constrains('patient_id')
     def _check_patient_id(self):

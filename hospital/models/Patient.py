@@ -29,11 +29,5 @@ class Patient(models.Model):
          'The Social Security Number must be unique.')
     ]
 
-    @api.constrains('bed_id')
-    def check_bed_availability(self):
-        for record in self:
-            if record.bed_id and record.bed_id.state == 'occupied':
-                raise ValidationError("The bed is already occupied.")
-
     def discharge(self):
         self.state = 'not_admitted'

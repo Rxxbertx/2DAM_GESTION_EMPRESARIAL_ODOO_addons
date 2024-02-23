@@ -34,20 +34,44 @@
     </record>
 
 
-    
-    
+    <record id="action_diagnosis" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="res_model">hospital.diagnosis</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="action_treatment" model="ir.actions.act_window">
+        <field name="name">Treatments</field>
+        <field name="res_model">hospital.treatment</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="action_report" model="ir.actions.act_window">
+        <field name="name">Reports</field>
+        <field name="res_model">hospital.report</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
 
     <!-- Menu ROOT -->
     <menuitem id="hospital_menu_root" name="Hospital" sequence="997"/>
 
     <!-- Menu items -->
     <menuitem id="menu_patient" name="Patients" parent="hospital_menu_root" sequence="10" action="action_patient"/>
-    
+
     <menuitem id="menu_bed" name="Beds" parent="hospital_menu_root" sequence="20" action="action_bed"/>
-    
-     <menuitem id="menu_floor" name="Floors" parent="hospital_menu_root" sequence="30" action="action_floor"/>
-    
-     <menuitem id="menu_doctor" name="Doctors" parent="hospital_menu_root" sequence="40" action="action_doctor"/>
-    
-     <menuitem id="menu_admission" parent="hospital_menu_root" name="Admissions" sequence="50" action="action_admission"/>
+
+    <menuitem id="menu_floor" name="Floors" parent="hospital_menu_root" sequence="30" action="action_floor"/>
+
+    <menuitem id="menu_doctor" name="Doctors" parent="hospital_menu_root" sequence="40" action="action_doctor"/>
+
+    <menuitem id="menu_admission" parent="hospital_menu_root" name="Admissions" sequence="50"
+              action="action_admission"/>
+
+    <menuitem id="menu_report" parent="hospital_menu_root" name="Reports" sequence="80" action="action_report"/>
+
+    <menuitem id="menu_diagnosis" parent="hospital_menu_root" name="Diagnosis" sequence="60" action="action_diagnosis"/>
+
+    <menuitem id="menu_treatment" parent="hospital_menu_root" name="Treatments" sequence="70"
+              action="action_treatment"/>
 </odoo>
