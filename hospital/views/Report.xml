@@ -1,34 +1,38 @@
 <odoo>
     <data>
 
-        <record id="view_admission_tree" model="ir.ui.view">
-            <field name="name">hospital.admission.tree</field>
-            <field name="model">hospital.admission</field>
+        <record id="view_report_tree" model="ir.ui.view">
+            <field name="name">hospital.report.tree</field>
+            <field name="model">hospital.report</field>
             <field name="arch" type="xml">
-                <tree string="Admission" decoration-danger="priority=='high'" decoration-info="priority=='normal'"
+                <tree string="report" decoration-danger="priority=='high'" decoration-info="priority=='normal'"
                       decoration-success="priority=='low'">
+                    <field name="name"/>
+                    <field name="state" decoration-success="state == 'completed'"
+                           decoration-info="state == 'in_progress'" widget="badge"/>
                     <field name="patient_id" widget="badge"/>
-                    <field name="doctor_admissions_id" widget="badge"/>
+                    <field name="patient_social_security_number"/>
+                    <field name="doctor_id" widget="badge"/>
                     <field name="bed_id" widget="badge"/>
                     <field name="admission_date" widget="date"/>
                     <field name="discharge_date" widget="date"/>
                     <field name="diagnosis_ids"/>
                     <field name="treatment_ids"/>
-                    <field name="state" widget="badge" decoration-success="state=='admitted'"/>
-                    <field name="priority" widget="badge" decoration-danger="priority=='high'" decoration-info="priority=='normal'"
+                    <field name="priority" widget="badge" decoration-danger="priority=='high'"
+                           decoration-info="priority=='normal'"
                            decoration-success="priority=='low'"/>
                 </tree>
             </field>
         </record>
 
-        <record id="view_admission_form" model="ir.ui.view">
-            <field name="name">hospital.admission.form</field>
-            <field name="model">hospital.admission</field>
+        <record id="view_report_form" model="ir.ui.view">
+            <field name="name">hospital.report.form</field>
+            <field name="model">hospital.report</field>
             <field name="arch" type="xml">
-                <form string="Admission" class="oe_form_sheet">
+                <form string="report" class="oe_form_sheet">
                     <sheet>
                         <div class="oe_title kanban_bottom">
-                            <label for="patient_id" class="oe_edit_only"/>
+                            <label for="patient_id"/>
                             <h1>
                                 <div style="display: flex;">
                                     <i class="fa fa-user" style="margin-right: 10px;"/><field name="patient_id" nolabel="1" style="margin-right: 10px;"/>SSN:<field name="patient_social_security_number" nolabel="1" style="margin-left: 10px;"/>
@@ -36,44 +40,43 @@
                             </h1>
                         </div>
                         <div class="kanban_right">
-                            <button name="discharge" string="DISCHARGE" type="object" class="oe_highlight"/>
                             <div>
-                                <label for="state" class="oe_edit_only"/>
+                                <label for="state"/>
                                 <h2>
                                     <i class="fa fa-info-circle"/>
-                                    <field name="state" nolabel="1"/>
+                                    <field name="state" nolabel="1" widget="statusbar"/>
                                 </h2>
-                                <label for="priority" class="oe_edit_only"/>
+                                <label for="priority"/>
                                 <h2>
                                     <i class="fa fa-exclamation-triangle"/>
-                                    <field name="priority" nolabel="1"/>
+                                    <field name="priority" nolabel="1" widget="statusbar"/>
                                 </h2>
                             </div>
 
                         </div>
                         <div class="oe_doctor">
-                            <label for="doctor_admissions_id" class="oe_edit_only"/>
+                            <label for="doctor_id"/>
                             <h2>
                                 <i class="fa fa-user-md"/>
-                                <field name="doctor_admissions_id" nolabel="1"/>
+                                <field name="doctor_id" nolabel="1"/>
                             </h2>
                         </div>
                         <div class="oe_bed">
-                            <label for="bed_id" class="oe_edit_only"/>
+                            <label for="bed_id"/>
                             <h3>
                                 <i class="fa fa-bed"/>
                                 <field name="bed_id" nolabel="1"/>
                             </h3>
                         </div>
                         <div class="oe_date">
-                            <label for="admission_date" class="oe_edit_only"/>
+                            <label for="admission_date"/>
                             <h4>
                                 <i class="fa fa-calendar"/>
                                 <field name="admission_date" nolabel="1"/>
                             </h4>
                         </div>
                         <div class="oe_date">
-                            <label for="discharge_date" class="oe_edit_only"/>
+                            <label for="discharge_date"/>
                             <h5>
                                 <i class="fa fa-calendar-check-o"/>
                                 <field name="discharge_date" nolabel="1"/>
@@ -83,17 +86,26 @@
                         <separator string="Diagnosis &amp; Treatment"/>
 
                         <div class="oe_diagnosis">
-                            <label for="diagnosis_ids" class="oe_edit_only"/>
+                            <label for="diagnosis_ids"/>
                             <h7>
                                 <i class="fa fa-stethoscope"/>
                                 <field name="diagnosis_ids" nolabel="1"/>
                             </h7>
                         </div>
                         <div class="oe_treatment">
-                            <label for="treatment_ids" class="oe_edit_only"/>
+                            <label for="treatment_ids"/>
                             <h7>
                                 <i class="fa fa-medkit"/>
                                 <field name="treatment_ids" nolabel="1"/>
+                            </h7>
+                        </div>
+
+                        <separator string="Medical Report"/>
+                        <div class="oe_diagnosis">
+                            <label for="admission_id"/>
+                            <h7>
+                                <i class="fa fa-stethoscope"/>
+                                <field name="admission_id" nolabel="1"/>
                             </h7>
                         </div>
 
@@ -103,16 +115,16 @@
             </field>
         </record>
 
-        <record id="view_admission_kanban" model="ir.ui.view">
-            <field name="name">hospital.admission.kanban</field>
-            <field name="model">hospital.admission</field>
+        <record id="view_report_kanban" model="ir.ui.view">
+            <field name="name">hospital.report.kanban</field>
+            <field name="model">hospital.report</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile">
+                <kanban>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click   {{record.priority.raw_value == 'high' ? 'oe_kanban_color_red' : (record.priority.raw_value == 'normal' ? 'oe_kanban_color_blue' : 'oe_kanban_color_green')}}">
+                            <div t-attf-class="oe_kanban_global_click  {{record.state.raw_value == 'in_progress' ? 'oe_kanban_color_red' : 'oe_kanban_color_green'}}">
                                 <div class="oe_kanban_details">
-                                    <div class="oe_kanban_content div_centered">
+                                    <div class="oe_kanban_content div_centered ">
                                         <h2>
                                             <div style="display: flex;">
                                                 <i class="fa fa-user" style="margin-right: 10px;"/><field name="patient_id" nolabel="1" style="margin-right: 10px;"/>SSN:<field name="patient_social_security_number" nolabel="1" style="margin-left: 10px;"/>
@@ -123,15 +135,15 @@
                                         <h3>
                                             <i class="fa fa-user-md"/>
                                             Doctor:
-                                            <field name="doctor_admissions_id"/>
+                                            <field name="doctor_id"/>
                                         </h3>
                                     </div>
                                     <div class="oe_kanban_content kanban_right">
-                                        <h4>
+                                        <h3>
                                             <i class="fa fa-bed"/>
                                             Bed:
                                             <field name="bed_id"/>
-                                        </h4>
+                                        </h3>
                                     </div>
                                     <div class="oe_kanban_content kanban_bottom">
                                         <h4>
@@ -140,10 +152,10 @@
                                         </h4>
                                     </div>
                                     <div class="oe_kanban_content">
-                                        <h5>
+                                        <h4>
                                             <i class="fa fa-calendar-check-o"/>
                                             <field name="discharge_date" widget="date"/>
-                                        </h5>
+                                        </h4>
                                     </div>
                                     <div class="oe_kanban_content kanban_bottom">
                                         <h3>
@@ -163,7 +175,8 @@
                                         <h3>
                                             <i class="fa fa-info-circle"/>
                                             State:
-                                            <field name="state" widget="badge" decoration-success="state=='admitted'"/>
+                                            <field name="state" widget="badge" decoration-danger="state=='in_progress'"
+                                                   decoration-success="state =='completed'"/>
                                         </h3>
                                     </div>
                                     <div class="oe_kanban_content kanban_right">

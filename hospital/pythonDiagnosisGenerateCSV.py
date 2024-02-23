@@ -9,7 +9,7 @@ fake = Faker()
 diagnoses_data = []
 for _ in range(20):  # Generar 20 diagnósticos
     diagnosis = {
-        'name': fake.word(),  # Nombre del diagnóstico
+        'name': "Diagnosis "+_.__str__(),  # Nombre del diagnóstico
         'date': (datetime.now() - timedelta(days=random.randint(1, 365))).strftime('%Y-%m-%d'),  # Fecha aleatoria en el último año
         'description': fake.text(),  # Descripción aleatoria
     }
