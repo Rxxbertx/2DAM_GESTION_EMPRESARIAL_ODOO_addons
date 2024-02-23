@@ -10,6 +10,8 @@
                     <field name="name"/>
                     <field name="last_name"/>
                     <field name="full_name"/>
+                    <field name="gender"/>
+                    <field name="age"/>
                     <field name="specialization"/>
                     <field name="work_schedule" widget="float_time"/>
                     <field name="phone" widget="phone"/>
@@ -36,6 +38,13 @@
                                             <field name="last_name"/>(<field name="age"/>)
                                         </strong>
                                     </div>
+
+                                    <div class="o_kanban_record_subtitle"
+                                         t-attf-class="{{ record.gender.raw_value == 'male' ? 'male' : record.gender.raw_value == 'female' ? 'female' : 'other' }}">
+                                        <i class="fa fa-venus-mars"/>
+                                        <field name="gender"/>
+                                    </div>
+
                                     <div class="oe_kanban_content">
                                         <i class="fa fa-stethoscope" aria-hidden="true"/>
                                         <field name="specialization"/>
@@ -68,23 +77,31 @@
                 <form string="Doctor Information" class="oe_form_sheet">
                     <sheet>
                         <div class="kanban_title">
-                            
+
                             <h1>
                                 <div>
-                                <field name="name"/>
-                                <field name="last_name"/>
-                        </div></h1>
-                            
+                                    <field name="name"/>
+                                    <field name="last_name"/>
+                                </div>
+                            </h1>
+
                         </div>
                         <h3>
                             <div>
                                 <i class="fa fa-id-card" aria-hidden="true"/>
                                 <field name="full_name" readonly="1"/>
+
+
+                                <i class='fa fa-venus-mars'/>
+                                <field name="gender" widget="selection"/>
+
                                 <br/>
-                                <i class="fa fa-birthday-cake" aria-hidden="true"/>
-                                <field name="age"/>
+
                                 <i class="fa fa-calendar" aria-hidden="true"/>
                                 <field name="date_of_birth"/>
+                                <i class="fa fa-birthday-cake" aria-hidden="true"/>
+                                <field name="age"/>
+
                             </div>
                             <div>
                                 <i class="fa fa-stethoscope" aria-hidden="true"/>
@@ -93,8 +110,8 @@
                                 <i class="fa fa-clock-o" aria-hidden="true"/>
                                 <field name="work_schedule" widget="float_time"/>
                             </div>
-                      
-                       
+
+
                             <div>
                                 <i class="fa fa-phone" aria-hidden="true"/>
                                 <field name="phone" widget="phone"/>
@@ -104,16 +121,16 @@
                         </h3>
                         <notebook>
                             <page string="Patients">
-                               
-                                        <i class="fa fa-users" aria-hidden="true"/>
-                                        <field name="patients"/>
-                               
+
+                                <i class="fa fa-users" aria-hidden="true"/>
+                                <field name="patients"/>
+
                             </page>
                             <page string="Treated Patients">
-                                
-                                        <i class="fa fa-users" aria-hidden="true"/>
-                                        <field name="treated_patients_ids"/>
-                               
+
+                                <i class="fa fa-users" aria-hidden="true"/>
+                                <field name="treated_patients_ids"/>
+
                             </page>
                         </notebook>
                     </sheet>

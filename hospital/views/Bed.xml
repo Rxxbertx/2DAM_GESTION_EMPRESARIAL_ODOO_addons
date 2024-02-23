@@ -20,6 +20,7 @@
             <field name="model">hospital.bed</field>
             <field name="arch" type="xml">
                 <form string="Bed" class="oe_form_sheet">
+                    <templates>
                     <sheet>
                         <div class="oe_title div_centered">
                             <h1>
@@ -48,6 +49,7 @@
                             <field name="patient_id" widget="list" readonly="true"/>
                         </div>
                     </sheet>
+                    </templates>
                 </form>
             </field>
         </record>
@@ -64,7 +66,7 @@
                     <field name="type"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click  oe_kanban_card {{record.state.raw_value == 'occupied' ? 'oe_kanban_color_red' : 'oe_kanban_color_green'}}">
+                            <div t-attf-class="oe_kanban_global_click  {{record.state.raw_value == 'occupied' ? 'oe_kanban_color_red' : 'oe_kanban_color_green'}}">
                                 <div class="oe_kanban_details">
 
 

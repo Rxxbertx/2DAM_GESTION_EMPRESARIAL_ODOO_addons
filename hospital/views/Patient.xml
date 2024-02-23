@@ -3,12 +3,11 @@
 
         <record model="ir.ui.view" id="hospital_patient_tree">
             <field name="name">hospital patient list</field>
-            <field name="model">hospital.extended.patient</field>
+            <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <tree string="Patient">
                     <field name="name"/>
                     <field name="last_name"/>
-                    
                     <field name="social_security_number"/>
                     <field name="state" widget="badge" decoration-success="state == 'admitted'"/>
                     <field name="date_of_birth" widget="date"/>
@@ -16,16 +15,15 @@
                     <field name="gender" widget="badge" decoration-danger="gender == 'female'"
                            decoration-success="gender == 'male'"/>
                     <field name="phone" widget="phone"/>
-                    <field name="doctor_id"/>
-                    <field name="bed_id" widget="badge"/>
-                    
+                    <field name="admission_ids" widget="many2many_tags"/>
+
                 </tree>
             </field>
         </record>
 
         <record id="hospital_patient_form" model="ir.ui.view">
             <field name="name">hospital patient form</field>
-            <field name="model">hospital.extended.patient</field>
+            <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <form string="Patient" class="oe_form_sheet">
                     <sheet>
@@ -39,14 +37,11 @@
                         </div>
                         <div style="float:right">
                             <field name="state" widget="statusbar"/>
-                            <br/>
-                            
-                                <button name="discharge" string="Discharge" type="object" class="btn-primary"/>
                         </div>
                         <notebook>
                             <page string="General">
                                 <group>
-                                    <label for="last_name" string="Last Name" />
+                                    <label for="last_name" string="Last Name"/>
                                     <h2>
                                         <i class='fa fa-user'/>
                                         <field name="last_name" widget="char" placeholder="Last Name"/>
@@ -88,30 +83,16 @@
                                     <label for="preexisting_conditions" string="Preexisting Conditions"/>
                                     <h2>
                                         <i class='fa fa-heartbeat'/>
-                                        <field name="preexisting_conditions" widget="html" placeholder="Preexisting Conditions"/>
+                                        <field name="preexisting_conditions" widget="html"
+                                               placeholder="Preexisting Conditions"/>
                                     </h2>
                                 </group>
                             </page>
-                            <page string="Doctor">
-                                <group>
-                                    <label for="doctor_id" string="doctor"/>
-                                    <h2>
-                                        <i class='fa fa-user-md'/>
-                                        <field name="doctor_id" widget="list"/>
-                                    </h2>
-                                </group>
-                            </page>
-                            <page string="Bed">
-                                <group>
-                                    <label for="bed_id" string="Bed"/>
-                                    <h2>
-                                        <i class='fa fa-bed'/>
-                                        <field name="bed_id" widget="list"/>
-                                    </h2>
-                                </group>
+                            <page string="Admissions">
+                                <field name="admission_ids"/>
                             </page>
                         </notebook>
-                        
+
                     </sheet>
                 </form>
             </field>
@@ -119,7 +100,7 @@
 
         <record id="hospital_patient_kanban" model="ir.ui.view">
             <field name="name">hospital.patient.kanban</field>
-            <field name="model">hospital.extended.patient</field>
+            <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_view">
                     <templates>
@@ -143,15 +124,11 @@
                                                 <i class="fa fa-phone"/>
                                                 <field name="phone"/>
                                             </div>
-                                            
-                                            <div class="o_kanban_record_subtitle">
-                                                <i class="fa fa-user"/>
-                                                <field name="doctor_id"/>
-                                            </div>
-                                            
+
+
                                         </div>
                                         <div class="kanban_right">
-                                            
+
                                             <div class="o_kanban_record_subtitle">
                                                 <i class="fa fa-birthday-cake"/>
                                                 <field name="date_of_birth"/>
@@ -161,13 +138,8 @@
                                                 <i class="fa fa-venus-mars"/>
                                                 <field name="gender"/>
                                             </div>
-                                            <div class="o_kanban_record_subtitle">
-                                                <i class="fa fa-bed"/>
-                                                <field name="bed_id"/>
-                                            </div>
-                                            
-                                            
-                                            
+
+
                                         </div>
                                         <div class="kanban_bottom">
                                             <div class="o_kanban_record_subtitle">
@@ -186,7 +158,12 @@
                                                 <i class="fa fa-heartbeat"/>
                                                 <field name="preexisting_conditions"/>
                                             </div>
-                                            
+
+                                            <div class="o_kanban_record_subtitle">
+                                                <i class="fa fa-calendar"/> Total Admissions: 
+                                                <field name="admission_ids"/>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

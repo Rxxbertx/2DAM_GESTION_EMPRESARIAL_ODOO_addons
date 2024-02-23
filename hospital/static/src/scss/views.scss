@@ -41,6 +41,8 @@
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   background-position: right center;
   background-image: linear-gradient(to right, rgba(66, 39, 90, 0.5) 0%, rgba(115, 75, 109, 0.5) 51%, rgba(66, 39, 90, 0.5) 100%);
+  color: white;
+
 }
 
 .oe_form_sheet {
@@ -58,6 +60,8 @@
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   background-position: right center;
   background-image: linear-gradient(to right, rgba(90, 39, 39, 0.8) 0%, rgba(115, 75, 75, 0.8) 51%, rgba(90, 39, 39, 0.8) 100%);
+  color: white;
+
 }
 
 .oe_kanban_color_green{
@@ -70,6 +74,36 @@
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   background-position: right center;
   background-image: linear-gradient(to right, rgba(39, 90, 39, 0.8) 0%, rgba(75, 115, 75, 0.8) 51%, rgba(39, 90, 39, 0.8) 100%);
+  color: white;
+
+}
+
+.oe_kanban_color_blue{
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  background-image: linear-gradient(to right, rgba(39, 39, 90, 0.47) 0%, rgba(75, 75, 115, 0.45) 51%, rgba(39, 39, 90, 0.47) 100%);
+  background-size: 200% auto;
+}
+.oe_kanban_color_blue:hover {
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  background-position: right center;
+  background-image: linear-gradient(to right, rgba(66, 66, 79, 0.8) 0%, rgba(75, 75, 115, 0.8) 51%, rgba(75, 75, 94, 0.8) 100%);
+  color: white;
+}
+
+.oe_kanban_color_yellow{
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  background-image: linear-gradient(to right, rgba(90, 90, 39, 0.47) 0%, rgba(115, 115, 75, 0.45) 51%, rgba(90, 90, 39, 0.47) 100%);
+  background-size: 200% auto;
+}
+
+.oe_kanban_color_yellow:hover {
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  background-position: right center;
+  background-image: linear-gradient(to right, rgba(90, 90, 39, 0.8) 0%, rgba(115, 115, 75, 0.8) 51%, rgba(90, 90, 39, 0.8) 100%);
+  color: white;
+
 }
 
 .div_centered{

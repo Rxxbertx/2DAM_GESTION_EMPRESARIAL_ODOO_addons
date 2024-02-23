@@ -3,7 +3,21 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\biblioteca_roberto\security\ir.model.access.csv">
+        <entry key="\hospital\data\hospital.bed.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\hospital\data\hospital.doctor.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\hospital\data\hospital.patient.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

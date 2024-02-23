@@ -17,8 +17,8 @@ for i in range(1, 6):  # Para cada planta
     for _ in range(random.randint(1, 50)):  # Generar un número aleatorio de camas
         bed_type = generate_bed_state_and_type()
         bed = {
-            'name': fake.word(),  # Nombre de la cama
-            'floor_id': i,  # ID de la planta asociada
+            'name': "Bed"+_.__str__()+"-"+i.__str__(),  # Nombre de la cama
+            'floor_id.id': i,  # ID de la planta asociada
             'state': 'available',  # Estado de la cama
             'type': bed_type,  # Tipo de cama
         }
@@ -27,7 +27,7 @@ for i in range(1, 6):  # Para cada planta
 # Escribir los datos en un archivo CSV
 csv_filename = 'data/hospital.bed.csv'
 with open(csv_filename, 'w', newline='') as csvfile:
-    fieldnames = ['name', 'floor_id', 'state', 'type']
+    fieldnames = ['name', 'floor_id.id', 'state', 'type']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()

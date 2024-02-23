@@ -25,17 +25,22 @@ hospital
 
     # always loaded
     'data': [
-        'views/patient.xml',
-        'views/floor.xml',
-        'views/bed.xml',
-        'views/doctor.xml',
-        'views/menu.xml',
-        'views/AdmissionHistory.xml',
-        'data/hospital.extended.patient.csv',
+        'views/Patient.xml',
+        'views/Floor.xml',
+        'views/Bed.xml',
+        'views/Doctor.xml',
+        'views/Diagnosis.xml',
+        'views/Treatment.xml',
+        'views/Report.xml',
+        'views/Admission.xml',
+        'views/Menu.xml',
+        'data/hospital.patient.csv',
         'data/hospital.floor.csv',
         'data/hospital.bed.csv',
         'data/hospital.doctor.csv',
-        
+        'data/hospital.diagnosis.csv',
+        'data/hospital.treatment.csv',
+
     ],
     'assets': {
         'web.assets_backend': [
